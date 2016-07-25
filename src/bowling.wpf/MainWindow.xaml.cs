@@ -29,10 +29,10 @@ namespace bowling.wpf
         private void button_Click(object sender, RoutedEventArgs e)
         {
             var input = textBox.Text;
-            var output = Bowling.bowlingScore(input);
-            if (FSharpOption<int>.get_IsSome(output))
+            int score = 0;
+            if (Bowling.TryGetBowlingScore(input, ref score))
             {
-                textBlock.Text = output.Value.ToString();
+                textBlock.Text = score.ToString();
             }
             else
             {

@@ -45,3 +45,11 @@ let bowlingScore (score: string) : Option<int> =
     |> parseScore
     |> optsToOpt
     |> Option.map countScore
+
+let TryGetBowlingScore(score: string, result : byref<int>) = 
+    match bowlingScore score with
+    | Some x -> 
+        result <- x
+        true
+    | None ->
+        false

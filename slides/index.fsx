@@ -13,4 +13,6 @@
 
 ---
 
+http://fsharp.org/specs/component-design-guidelines/
+
 *)

@@ -9,6 +9,12 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "bowling.console", "bowling.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "bowling.tests", "bowling.tests\bowling.tests.fsproj", "{B1A49879-FFB5-4F8A-A1AB-094DAE5609AB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{92B02FF1-CF91-4899-A0BB-BE06028B8D8D}"
+	ProjectSection(SolutionItems) = preProject
+		..\paket.dependencies = ..\paket.dependencies
+		..\paket.lock = ..\paket.lock
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

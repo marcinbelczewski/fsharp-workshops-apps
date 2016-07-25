@@ -9,3 +9,9 @@ group Build
     source https://nuget.org/api/v2
     
     nuget FAKE
+
+group Tests
+    framework: net451
+    source https://nuget.org/api/v2
+
+    nuget XUnit

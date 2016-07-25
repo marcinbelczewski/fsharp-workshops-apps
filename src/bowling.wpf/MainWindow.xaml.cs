@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.FSharp.Core;
 
 namespace bowling.wpf
 {
@@ -29,6 +30,14 @@ namespace bowling.wpf
         {
             var input = textBox.Text;
             var output = Bowling.bowlingScore(input);
+            if (FSharpOption<int>.get_IsSome(output))
+            {
+                textBlock.Text = output.Value.ToString();
+            }
+            else
+            {
+                textBlock.Text = "ERROR";
+            }
         }
     }
 }

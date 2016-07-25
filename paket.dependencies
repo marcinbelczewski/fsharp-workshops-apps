@@ -16,3 +16,4 @@ group Tests
     source https://nuget.org/api/v2
 
     nuget XUnit
+    nuget FsUnit.XUnit

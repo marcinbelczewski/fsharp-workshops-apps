@@ -7,6 +7,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "bowling", "bowling\bowling.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "bowling.console", "bowling.console\bowling.console.fsproj", "{F0447115-C2C4-4DAD-8D4E-192BBD6617D0}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "bowling.tests", "bowling.tests\bowling.tests.fsproj", "{B1A49879-FFB5-4F8A-A1AB-094DAE5609AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F0447115-C2C4-4DAD-8D4E-192BBD6617D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0447115-C2C4-4DAD-8D4E-192BBD6617D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0447115-C2C4-4DAD-8D4E-192BBD6617D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A49879-FFB5-4F8A-A1AB-094DAE5609AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A49879-FFB5-4F8A-A1AB-094DAE5609AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A49879-FFB5-4F8A-A1AB-094DAE5609AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A49879-FFB5-4F8A-A1AB-094DAE5609AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

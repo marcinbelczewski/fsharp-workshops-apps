@@ -28,3 +28,13 @@ let rec countScore (scores: list<int>) : int =
         (10 + b) + (if tail = [] then 0 else countScore rest)
     | r1 :: rest ->
         r1 + countScore rest
+
+let optsToOpt opts  =
+    let rec optsToOpt' acc opts =
+        match acc, opts with
+        | x, [] -> x |> Option.map List.rev
+        | Some xs, Some x :: rest ->
+            optsToOpt' (Some (x :: xs)) rest
+        | _ -> None
+
+    optsToOpt' (Some []) opts

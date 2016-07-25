@@ -24,5 +24,11 @@ namespace bowling.wpf
         {
             InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            var input = textBox.Text;
+            var output = Bowling.bowlingScore(input);
+        }
     }
 }

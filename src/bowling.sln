@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{92B02F
 		..\paket.dependencies = ..\paket.dependencies
 		..\paket.lock = ..\paket.lock
 	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.wpf", "bowling.wpf\bowling.wpf.csproj", "{95C27E07-67E7-4853-A1E6-EA182CAB422D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +34,10 @@ Global
 		{B1A49879-FFB5-4F8A-A1AB-094DAE5609AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1A49879-FFB5-4F8A-A1AB-094DAE5609AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1A49879-FFB5-4F8A-A1AB-094DAE5609AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95C27E07-67E7-4853-A1E6-EA182CAB422D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C27E07-67E7-4853-A1E6-EA182CAB422D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C27E07-67E7-4853-A1E6-EA182CAB422D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C27E07-67E7-4853-A1E6-EA182CAB422D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

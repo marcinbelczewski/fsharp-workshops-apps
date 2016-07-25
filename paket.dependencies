@@ -9,6 +9,7 @@ group Build
     source https://nuget.org/api/v2
     
     nuget FAKE
+    nuget xunit.runner.console
 
 group Tests
     framework: net451

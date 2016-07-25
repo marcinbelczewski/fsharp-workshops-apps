@@ -38,3 +38,10 @@ let optsToOpt opts  =
         | _ -> None
 
     optsToOpt' (Some []) opts
+
+let bowlingScore (score: string) : Option<int> =
+    score.ToCharArray()
+    |> Array.toList
+    |> parseScore
+    |> optsToOpt
+    |> Option.map countScore

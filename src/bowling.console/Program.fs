@@ -3,5 +3,7 @@
 
 [<EntryPoint>]
 let main argv = 
-    printfn "%A" argv
+    argv
+    |> Array.map Bowling.bowlingScore
+    |> Array.iter (printfn "%A")
     0 // return an integer exit code

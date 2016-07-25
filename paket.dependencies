@@ -4,6 +4,12 @@ nuget FsReveal
 nuget FAKE
 nuget Suave
 
+group App
+    
+    source https://nuget.org/api/v2
+
+    nuget FSharp.Core
+
 group Build
 
     source https://nuget.org/api/v2

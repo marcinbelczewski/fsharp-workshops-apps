@@ -17,3 +17,14 @@ let rec parseScore (chars: list<char>) : list<Option<int>> =
     | '-' :: rest -> Some 0 :: parseScore rest
     | Digit x :: rest -> Some x :: parseScore rest
     | _ :: rest -> None :: parseScore rest
+
+let rec countScore (scores: list<int>) : int =
+    match scores with
+    | [] -> 
+        0
+    | 10 :: (b1 :: b2 :: tail as rest) ->
+        (10 + b1 + b2) + (if tail = [] then 0 else countScore rest)
+    | r1 :: r2 :: (b :: tail as rest) when r1 + r2 = 10 ->
+        (10 + b) + (if tail = [] then 0 else countScore rest)
+    | r1 :: rest ->
+        r1 + countScore rest

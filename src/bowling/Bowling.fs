@@ -23,9 +23,9 @@ let rec countScore (scores: list<int>) : int =
     | [] -> 
         0
     | 10 :: (b1 :: b2 :: tail as rest) ->
-        (10 + b1 + b2) + (if tail = [] then 0 else countScore rest)
+        (10 + b1 + b2) + (if List.isEmpty tail then 0 else countScore rest)
     | r1 :: r2 :: (b :: tail as rest) when r1 + r2 = 10 ->
-        (10 + b) + (if tail = [] then 0 else countScore rest)
+        (10 + b) + (if List.isEmpty tail then 0 else countScore rest)
     | r1 :: rest ->
         r1 + countScore rest
 
@@ -46,7 +46,7 @@ let bowlingScore (score: string) : Option<int> =
     |> optsToOpt
     |> Option.map countScore
 
-let TryGetBowlingScore(score: string, result : byref<int>) = 
+let TryGetBowlingScore(score: string, result : byref<int>) : bool = 
     match bowlingScore score with
     | Some x -> 
         result <- x

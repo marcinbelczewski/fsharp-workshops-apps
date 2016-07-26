@@ -14,7 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{92B02F
 		..\paket.dependencies = ..\paket.dependencies
 		..\paket.lock = ..\paket.lock
 	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bowling.wpf", "bowling.wpf\bowling.wpf.csproj", "{95C27E07-67E7-4853-A1E6-EA182CAB422D}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "bowling.web", "bowling.web\bowling.web.fsproj", "{C628C69A-E64C-42E5-9B9A-E016C6E014D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +41,10 @@ Global
 		{95C27E07-67E7-4853-A1E6-EA182CAB422D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95C27E07-67E7-4853-A1E6-EA182CAB422D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95C27E07-67E7-4853-A1E6-EA182CAB422D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C628C69A-E64C-42E5-9B9A-E016C6E014D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C628C69A-E64C-42E5-9B9A-E016C6E014D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C628C69A-E64C-42E5-9B9A-E016C6E014D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C628C69A-E64C-42E5-9B9A-E016C6E014D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

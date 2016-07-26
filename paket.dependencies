@@ -9,6 +9,7 @@ group App
     source https://nuget.org/api/v2
 
     nuget FSharp.Core
+    nuget Suave
 
 group Build
 

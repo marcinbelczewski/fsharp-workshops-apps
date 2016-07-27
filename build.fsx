@@ -11,7 +11,8 @@ Target "Build" (fun _ ->
 Target "Tests" (fun _ ->
     ["bin/bowling.tests.dll"]
     |> xUnit2 (fun xunitParams -> 
-        { xunitParams with ToolPath = @"packages/Build/xunit.runner.console/tools/xunit.console.exe" }
+        { xunitParams with ToolPath = @"packages/Build/xunit.runner.console/" 
+                                    + @"tools/xunit.console.exe" }
     )
 )
 

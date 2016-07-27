@@ -46,12 +46,1052 @@
 </head>
 <body>
     <div class="reveal">
-        
+        <div class="tip" id="fs1">Multiple items<br />val char : char<br /><br />--------------------<br />type char = System.Char<br /><br />Full name: Microsoft.FSharp.Core.char</div>
+<div class="tip" id="fs2">val zero : int</div>
+<div class="tip" id="fs3">namespace System</div>
+<div class="tip" id="fs4">type Convert =<br />&#160;&#160;static val DBNull : obj<br />&#160;&#160;static member ChangeType : value:obj * typeCode:TypeCode -&gt; obj + 3 overloads<br />&#160;&#160;static member FromBase64CharArray : inArray:char[] * offset:int * length:int -&gt; byte[]<br />&#160;&#160;static member FromBase64String : s:string -&gt; byte[]<br />&#160;&#160;static member GetTypeCode : value:obj -&gt; TypeCode<br />&#160;&#160;static member IsDBNull : value:obj -&gt; bool<br />&#160;&#160;static member ToBase64CharArray : inArray:byte[] * offsetIn:int * length:int * outArray:char[] * offsetOut:int -&gt; int + 1 overload<br />&#160;&#160;static member ToBase64String : inArray:byte[] -&gt; string + 3 overloads<br />&#160;&#160;static member ToBoolean : value:obj -&gt; bool + 17 overloads<br />&#160;&#160;static member ToByte : value:obj -&gt; byte + 18 overloads<br />&#160;&#160;...<br /><br />Full name: System.Convert</div>
+<div class="tip" id="fs5">System.Convert.ToInt32(value: System.DateTime) : int<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Convert.ToInt32(value: string) : int<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Convert.ToInt32(value: decimal) : int<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Convert.ToInt32(value: float) : int<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Convert.ToInt32(value: float32) : int<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Convert.ToInt32(value: uint64) : int<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Convert.ToInt32(value: int64) : int<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Convert.ToInt32(value: int) : int<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Convert.ToInt32(value: uint32) : int<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Convert.ToInt32(value: uint16) : int<br />&#160;&#160;&#160;<em>(+0 other overloads)</em></div>
+<div class="tip" id="fs6">type Char =<br />&#160;&#160;struct<br />&#160;&#160;&#160;&#160;member CompareTo : value:obj -&gt; int + 1 overload<br />&#160;&#160;&#160;&#160;member Equals : obj:obj -&gt; bool + 1 overload<br />&#160;&#160;&#160;&#160;member GetHashCode : unit -&gt; int<br />&#160;&#160;&#160;&#160;member GetTypeCode : unit -&gt; TypeCode<br />&#160;&#160;&#160;&#160;member ToString : unit -&gt; string + 1 overload<br />&#160;&#160;&#160;&#160;static val MaxValue : char<br />&#160;&#160;&#160;&#160;static val MinValue : char<br />&#160;&#160;&#160;&#160;static member ConvertFromUtf32 : utf32:int -&gt; string<br />&#160;&#160;&#160;&#160;static member ConvertToUtf32 : highSurrogate:char * lowSurrogate:char -&gt; int + 1 overload<br />&#160;&#160;&#160;&#160;static member GetNumericValue : c:char -&gt; float + 1 overload<br />&#160;&#160;&#160;&#160;...<br />&#160;&#160;end<br /><br />Full name: System.Char</div>
+<div class="tip" id="fs7">System.Char.IsDigit(c: char) : bool<br />System.Char.IsDigit(s: string, index: int) : bool</div>
+<div class="tip" id="fs8">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs9">union case Option.None: Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs10">val parseScore : chars:char list -&gt; Option&lt;int&gt; list<br /><br />Full name: Index.parseScore</div>
+<div class="tip" id="fs11">val chars : char list</div>
+<div class="tip" id="fs12">type &#39;T list = List&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Collections.list&lt;_&gt;</div>
+<div class="tip" id="fs13">Multiple items<br />val char : value:&#39;T -&gt; char (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.char<br /><br />--------------------<br />type char = System.Char<br /><br />Full name: Microsoft.FSharp.Core.char</div>
+<div class="tip" id="fs14">module Option<br /><br />from Microsoft.FSharp.Core</div>
+<div class="tip" id="fs15">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.int<br /><br />--------------------<br />type int = int32<br /><br />Full name: Microsoft.FSharp.Core.int<br /><br />--------------------<br />type int&lt;&#39;Measure&gt; = int<br /><br />Full name: Microsoft.FSharp.Core.int&lt;_&gt;</div>
+<div class="tip" id="fs16">val rest : char list</div>
+<div class="tip" id="fs17">active recognizer Digit: char -&gt; int option<br /><br />Full name: Index.( |Digit|_| )</div>
+<div class="tip" id="fs18">val x : int</div>
+<div class="tip" id="fs19">val parseScoreResult : Option&lt;int&gt; list<br /><br />Full name: Index.parseScoreResult</div>
+<div class="tip" id="fs20">val countScore : scores:int list -&gt; int<br /><br />Full name: Index.countScore</div>
+<div class="tip" id="fs21">val scores : int list</div>
+<div class="tip" id="fs22">val b1 : int</div>
+<div class="tip" id="fs23">val b2 : int</div>
+<div class="tip" id="fs24">val tail : int list</div>
+<div class="tip" id="fs25">val rest : int list</div>
+<div class="tip" id="fs26">Multiple items<br />module List<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List&lt;&#39;T&gt; =<br />&#160;&#160;| ( [] )<br />&#160;&#160;| ( :: ) of Head: &#39;T * Tail: &#39;T list<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;member GetSlice : startIndex:int option * endIndex:int option -&gt; &#39;T list<br />&#160;&#160;member Head : &#39;T<br />&#160;&#160;member IsEmpty : bool<br />&#160;&#160;member Item : index:int -&gt; &#39;T with get<br />&#160;&#160;member Length : int<br />&#160;&#160;member Tail : &#39;T list<br />&#160;&#160;static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list<br />&#160;&#160;static member Empty : &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.List&lt;_&gt;</div>
+<div class="tip" id="fs27">val isEmpty : list:&#39;T list -&gt; bool<br /><br />Full name: Microsoft.FSharp.Collections.List.isEmpty</div>
+<div class="tip" id="fs28">val r1 : int</div>
+<div class="tip" id="fs29">val r2 : int</div>
+<div class="tip" id="fs30">val b : int</div>
+<div class="tip" id="fs31">val countScoreResult : int<br /><br />Full name: Index.countScoreResult</div>
+<div class="tip" id="fs32">val optsToOpt : opts:List&lt;Option&lt;&#39;a&gt;&gt; -&gt; Option&lt;List&lt;&#39;a&gt;&gt;<br /><br />Full name: Index.optsToOpt</div>
+<div class="tip" id="fs33">val opts : List&lt;Option&lt;&#39;a&gt;&gt;</div>
+<div class="tip" id="fs34">val optsToOpt&#39; : (&#39;b list option -&gt; &#39;b option list -&gt; &#39;b list option)</div>
+<div class="tip" id="fs35">val acc : &#39;b list option</div>
+<div class="tip" id="fs36">val opts : &#39;b option list</div>
+<div class="tip" id="fs37">val x : &#39;b list option</div>
+<div class="tip" id="fs38">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; option:&#39;T option -&gt; &#39;U option<br /><br />Full name: Microsoft.FSharp.Core.Option.map</div>
+<div class="tip" id="fs39">val rev : list:&#39;T list -&gt; &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.List.rev</div>
+<div class="tip" id="fs40">val xs : &#39;b list</div>
+<div class="tip" id="fs41">val x : &#39;b</div>
+<div class="tip" id="fs42">val rest : &#39;b option list</div>
+<div class="tip" id="fs43">val oneOption : Option&lt;List&lt;string&gt;&gt;<br /><br />Full name: Index.oneOption</div>
+<div class="tip" id="fs44">val bowlingScore : score:string -&gt; Option&lt;int&gt;<br /><br />Full name: Index.bowlingScore</div>
+<div class="tip" id="fs45">val score : string</div>
+<div class="tip" id="fs46">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = System.String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
+<div class="tip" id="fs47">System.String.ToCharArray() : char []<br />System.String.ToCharArray(startIndex: int, length: int) : char []</div>
+<div class="tip" id="fs48">module Array<br /><br />from Microsoft.FSharp.Collections</div>
+<div class="tip" id="fs49">val toList : array:&#39;T [] -&gt; &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.Array.toList</div>
+<div class="tip" id="fs50">val bowlingScoreResult : Option&lt;int&gt;<br /><br />Full name: Index.bowlingScoreResult</div>
+<div class="tip" id="fs51">Multiple items<br />type EntryPointAttribute =<br />&#160;&#160;inherit Attribute<br />&#160;&#160;new : unit -&gt; EntryPointAttribute<br /><br />Full name: Microsoft.FSharp.Core.EntryPointAttribute<br /><br />--------------------<br />new : unit -&gt; EntryPointAttribute</div>
+<div class="tip" id="fs52">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
+<div class="tip" id="fs53">type byref&lt;&#39;T&gt; = (# &quot;&lt;Common IL Type Omitted&gt;&quot; #)<br /><br />Full name: Microsoft.FSharp.Core.byref&lt;_&gt;</div>
+<div class="tip" id="fs54">type bool = System.Boolean<br /><br />Full name: Microsoft.FSharp.Core.bool</div>
+<div class="tip" id="fs55">type Int32 =<br />&#160;&#160;struct<br />&#160;&#160;&#160;&#160;member CompareTo : value:obj -&gt; int + 1 overload<br />&#160;&#160;&#160;&#160;member Equals : obj:obj -&gt; bool + 1 overload<br />&#160;&#160;&#160;&#160;member GetHashCode : unit -&gt; int<br />&#160;&#160;&#160;&#160;member GetTypeCode : unit -&gt; TypeCode<br />&#160;&#160;&#160;&#160;member ToString : unit -&gt; string + 3 overloads<br />&#160;&#160;&#160;&#160;static val MaxValue : int<br />&#160;&#160;&#160;&#160;static val MinValue : int<br />&#160;&#160;&#160;&#160;static member Parse : s:string -&gt; int + 3 overloads<br />&#160;&#160;&#160;&#160;static member TryParse : s:string * result:int -&gt; bool + 1 overload<br />&#160;&#160;end<br /><br />Full name: System.Int32</div>
+<div class="tip" id="fs56">System.Int32.TryParse(s: string, result: byref&lt;int&gt;) : bool<br />System.Int32.TryParse(s: string, style: System.Globalization.NumberStyles, provider: System.IFormatProvider, result: byref&lt;int&gt;) : bool</div>
+<div class="tip" id="fs57">val dict : keyValuePairs:seq&lt;&#39;Key * &#39;Value&gt; -&gt; System.Collections.Generic.IDictionary&lt;&#39;Key,&#39;Value&gt; (requires equality)<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.dict</div>
+<div class="tip" id="fs58">namespace System.Collections</div>
+<div class="tip" id="fs59">namespace System.Collections.Generic</div>
+<div class="tip" id="fs60">Multiple items<br />type Dictionary&lt;&#39;TKey,&#39;TValue&gt; =<br />&#160;&#160;new : unit -&gt; Dictionary&lt;&#39;TKey, &#39;TValue&gt; + 5 overloads<br />&#160;&#160;member Add : key:&#39;TKey * value:&#39;TValue -&gt; unit<br />&#160;&#160;member Clear : unit -&gt; unit<br />&#160;&#160;member Comparer : IEqualityComparer&lt;&#39;TKey&gt;<br />&#160;&#160;member ContainsKey : key:&#39;TKey -&gt; bool<br />&#160;&#160;member ContainsValue : value:&#39;TValue -&gt; bool<br />&#160;&#160;member Count : int<br />&#160;&#160;member GetEnumerator : unit -&gt; Enumerator&lt;&#39;TKey, &#39;TValue&gt;<br />&#160;&#160;member GetObjectData : info:SerializationInfo * context:StreamingContext -&gt; unit<br />&#160;&#160;member Item : &#39;TKey -&gt; &#39;TValue with get, set<br />&#160;&#160;...<br />&#160;&#160;nested type Enumerator<br />&#160;&#160;nested type KeyCollection<br />&#160;&#160;nested type ValueCollection<br /><br />Full name: System.Collections.Generic.Dictionary&lt;_,_&gt;<br /><br />--------------------<br />System.Collections.Generic.Dictionary() : unit<br />System.Collections.Generic.Dictionary(capacity: int) : unit<br />System.Collections.Generic.Dictionary(comparer: System.Collections.Generic.IEqualityComparer&lt;&#39;TKey&gt;) : unit<br />System.Collections.Generic.Dictionary(dictionary: System.Collections.Generic.IDictionary&lt;&#39;TKey,&#39;TValue&gt;) : unit<br />System.Collections.Generic.Dictionary(capacity: int, comparer: System.Collections.Generic.IEqualityComparer&lt;&#39;TKey&gt;) : unit<br />System.Collections.Generic.Dictionary(dictionary: System.Collections.Generic.IDictionary&lt;&#39;TKey,&#39;TValue&gt;, comparer: System.Collections.Generic.IEqualityComparer&lt;&#39;TKey&gt;) : unit</div>
+<div class="tip" id="fs61">type IDisposable =<br />&#160;&#160;member Dispose : unit -&gt; unit<br /><br />Full name: System.IDisposable</div>
+
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
             <section >
+<section >
 <h2>F# CAMP</h2>
 <h3>Writing .NET applications in F#</h3>
+<ul>
+<li>Open up new instance of <strong>Visual Studio 2015</strong></li>
+<li>Make sure you have F# templates (in <code>Other Languages</code>)</li>
+</ul>
+<p><img src="images/fsharp_templates.png" alt="fsharp_templates.png" /></p>
+</section>
+<section >
+<h2>Agenda</h2>
+<ul>
+<li>F# Library (bowling score)</li>
+<li>F# Console app</li>
+<li>F# Build script - <a href="http://fsharp.github.io/FAKE/">FAKE</a></li>
+<li>F# Test project - <a href="https://xunit.github.io/">xUnit</a></li>
+<li>C# Window app - WPF (integration with F#)</li>
+<li>F# Web app</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>F# Library (bowling score)</h2>
+<ul>
+<li>Create new, <strong>blank</strong> solution called "bowling" in directory of your choice</li>
+</ul>
+<p><img src="images/blank_sln.png" alt="blank_sln.png" /></p>
+<ul>
+<li>Create new F# library called "bowling" in the solution</li>
+</ul>
+</section>
+<section >
+<ul>
+<li>Delete <code>Script.fsx</code> from the project</li>
+<li>Rename <code>Library1.fs</code> to <code>Bowling.fs</code></li>
+<li>Open renamed file <code>Bowling.fs</code> in editor</li>
+<li>Remove generated code from the file, and insert module declaration:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">module</span> <span class="i">Bowling</span>
+</code></pre></td>
+</tr>
+</table>
+<h4>! Remember to save all changes when manipulating projects in Visual Studio (Ctrl + Shift + S)</h4>
+</section>
+<section >
+<ul>
+<li>Copy code for <code>Digit</code> active pattern recognizer into <code>Bowling</code> module</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> (|<span class="p">Digit</span>|_|) <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">char</span> <span class="o">=</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">zero</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="t">Convert</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="f">ToInt32</span> <span class="s">&#39;0&#39;</span>
+    <span class="k">if</span> <span onmouseout="hideTip(event, 'fs3', 6)" onmouseover="showTip(event, 'fs3', 6)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 7)" onmouseover="showTip(event, 'fs6', 7)" class="t">Char</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 8)" onmouseover="showTip(event, 'fs7', 8)" class="f">IsDigit</span> <span onmouseout="hideTip(event, 'fs1', 9)" onmouseover="showTip(event, 'fs1', 9)" class="i">char</span> <span class="k">then</span>
+        <span onmouseout="hideTip(event, 'fs8', 10)" onmouseover="showTip(event, 'fs8', 10)" class="p">Some</span> (<span onmouseout="hideTip(event, 'fs3', 11)" onmouseover="showTip(event, 'fs3', 11)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs4', 12)" onmouseover="showTip(event, 'fs4', 12)" class="t">Convert</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 13)" onmouseover="showTip(event, 'fs5', 13)" class="f">ToInt32</span> <span onmouseout="hideTip(event, 'fs1', 14)" onmouseover="showTip(event, 'fs1', 14)" class="i">char</span> <span class="o">-</span> <span onmouseout="hideTip(event, 'fs2', 15)" onmouseover="showTip(event, 'fs2', 15)" class="i">zero</span>)
+    <span class="k">else</span>
+        <span onmouseout="hideTip(event, 'fs9', 16)" onmouseover="showTip(event, 'fs9', 16)" class="p">None</span>
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<ul>
+<li>Copy code for <code>parseScore</code> function after <code>Digit</code></li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+<span class="l">8: </span>
+<span class="l">9: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span class="k">rec</span> <span onmouseout="hideTip(event, 'fs10', 17)" onmouseover="showTip(event, 'fs10', 17)" class="f">parseScore</span> (<span onmouseout="hideTip(event, 'fs11', 18)" onmouseover="showTip(event, 'fs11', 18)" class="i">chars</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs12', 19)" onmouseover="showTip(event, 'fs12', 19)" class="t">list</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs13', 20)" onmouseover="showTip(event, 'fs13', 20)" class="t">char</span><span class="o">&gt;</span>) <span class="o">:</span> <span onmouseout="hideTip(event, 'fs12', 21)" onmouseover="showTip(event, 'fs12', 21)" class="t">list</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs14', 22)" onmouseover="showTip(event, 'fs14', 22)" class="t">Option</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs15', 23)" onmouseover="showTip(event, 'fs15', 23)" class="t">int</span><span class="o">&gt;</span><span class="o">&gt;</span> <span class="o">=</span>
+    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs11', 24)" onmouseover="showTip(event, 'fs11', 24)" class="i">chars</span> <span class="k">with</span>
+    | [] <span class="k">-&gt;</span> []
+    | <span class="s">&#39;X&#39;</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs16', 25)" onmouseover="showTip(event, 'fs16', 25)" class="i">rest</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs8', 26)" onmouseover="showTip(event, 'fs8', 26)" class="p">Some</span> <span class="n">10</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs10', 27)" onmouseover="showTip(event, 'fs10', 27)" class="f">parseScore</span> <span onmouseout="hideTip(event, 'fs16', 28)" onmouseover="showTip(event, 'fs16', 28)" class="i">rest</span>
+    | <span onmouseout="hideTip(event, 'fs17', 29)" onmouseover="showTip(event, 'fs17', 29)" class="p">Digit</span> <span onmouseout="hideTip(event, 'fs18', 30)" onmouseover="showTip(event, 'fs18', 30)" class="i">x</span> <span class="o">::</span> <span class="s">&#39;/&#39;</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs16', 31)" onmouseover="showTip(event, 'fs16', 31)" class="i">rest</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs8', 32)" onmouseover="showTip(event, 'fs8', 32)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs18', 33)" onmouseover="showTip(event, 'fs18', 33)" class="i">x</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs8', 34)" onmouseover="showTip(event, 'fs8', 34)" class="p">Some</span> (<span class="n">10</span> <span class="o">-</span> <span onmouseout="hideTip(event, 'fs18', 35)" onmouseover="showTip(event, 'fs18', 35)" class="i">x</span>) <span class="o">::</span> <span onmouseout="hideTip(event, 'fs10', 36)" onmouseover="showTip(event, 'fs10', 36)" class="f">parseScore</span> <span onmouseout="hideTip(event, 'fs16', 37)" onmouseover="showTip(event, 'fs16', 37)" class="i">rest</span>
+    | <span class="s">&#39;-&#39;</span> <span class="o">::</span> <span class="s">&#39;/&#39;</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs16', 38)" onmouseover="showTip(event, 'fs16', 38)" class="i">rest</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs8', 39)" onmouseover="showTip(event, 'fs8', 39)" class="p">Some</span> <span class="n">0</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs8', 40)" onmouseover="showTip(event, 'fs8', 40)" class="p">Some</span> <span class="n">10</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs10', 41)" onmouseover="showTip(event, 'fs10', 41)" class="f">parseScore</span> <span onmouseout="hideTip(event, 'fs16', 42)" onmouseover="showTip(event, 'fs16', 42)" class="i">rest</span>
+    | <span class="s">&#39;-&#39;</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs16', 43)" onmouseover="showTip(event, 'fs16', 43)" class="i">rest</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs8', 44)" onmouseover="showTip(event, 'fs8', 44)" class="p">Some</span> <span class="n">0</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs10', 45)" onmouseover="showTip(event, 'fs10', 45)" class="f">parseScore</span> <span onmouseout="hideTip(event, 'fs16', 46)" onmouseover="showTip(event, 'fs16', 46)" class="i">rest</span>
+    | <span onmouseout="hideTip(event, 'fs17', 47)" onmouseover="showTip(event, 'fs17', 47)" class="p">Digit</span> <span onmouseout="hideTip(event, 'fs18', 48)" onmouseover="showTip(event, 'fs18', 48)" class="i">x</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs16', 49)" onmouseover="showTip(event, 'fs16', 49)" class="i">rest</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs8', 50)" onmouseover="showTip(event, 'fs8', 50)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs18', 51)" onmouseover="showTip(event, 'fs18', 51)" class="i">x</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs10', 52)" onmouseover="showTip(event, 'fs10', 52)" class="f">parseScore</span> <span onmouseout="hideTip(event, 'fs16', 53)" onmouseover="showTip(event, 'fs16', 53)" class="i">rest</span>
+    | _ <span class="o">::</span> <span onmouseout="hideTip(event, 'fs16', 54)" onmouseover="showTip(event, 'fs16', 54)" class="i">rest</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 55)" onmouseover="showTip(event, 'fs9', 55)" class="p">None</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs10', 56)" onmouseover="showTip(event, 'fs10', 56)" class="f">parseScore</span> <span onmouseout="hideTip(event, 'fs16', 57)" onmouseover="showTip(event, 'fs16', 57)" class="i">rest</span>
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<h3>Test the code in Interactive</h3>
+<ul>
+<li>Select all lines <strong>excluding</strong> module declaration</li>
+<li>Trigger <em>Execute in Interactive</em></li>
+<li>In interactive window, enter following:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs19', 58)" onmouseover="showTip(event, 'fs19', 58)" class="i">parseScoreResult</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs10', 59)" onmouseover="showTip(event, 'fs10', 59)" class="f">parseScore</span> [<span class="s">&#39;4&#39;</span>; <span class="s">&#39;/&#39;</span>];;
+</code></pre></td>
+</tr>
+</table>
+<h4>Value of <code>parseScoreResult</code></h4>
+<table class="pre"><tr><td><pre><code>[Some 4; Some 6]</code></pre></td></tr></table>
+</section>
+<section >
+<h3>Exercise</h3>
+<ul>
+<li>Extend <code>Digit</code> active pattern to recognize '-' character as well,</li>
+<li>Rename <code>Digit</code> to <code>Pins</code> to better reflect its intent after the change,</li>
+<li>Refactor <code>parseScore</code> function,</li>
+<li>In interactive, make sure that after refactoring the code still works.</li>
+</ul>
+</section>
+<section >
+<ul>
+<li>Add <code>countScore</code> function</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span class="k">rec</span> <span onmouseout="hideTip(event, 'fs20', 60)" onmouseover="showTip(event, 'fs20', 60)" class="f">countScore</span> (<span onmouseout="hideTip(event, 'fs21', 61)" onmouseover="showTip(event, 'fs21', 61)" class="i">scores</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs12', 62)" onmouseover="showTip(event, 'fs12', 62)" class="t">list</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs15', 63)" onmouseover="showTip(event, 'fs15', 63)" class="t">int</span><span class="o">&gt;</span>) <span class="o">:</span> <span onmouseout="hideTip(event, 'fs15', 64)" onmouseover="showTip(event, 'fs15', 64)" class="t">int</span> <span class="o">=</span>
+    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs21', 65)" onmouseover="showTip(event, 'fs21', 65)" class="i">scores</span> <span class="k">with</span>
+    | [] <span class="k">-&gt;</span> 
+        <span class="n">0</span>
+    | <span class="n">10</span> <span class="o">::</span> (<span onmouseout="hideTip(event, 'fs22', 66)" onmouseover="showTip(event, 'fs22', 66)" class="i">b1</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs23', 67)" onmouseover="showTip(event, 'fs23', 67)" class="i">b2</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs24', 68)" onmouseover="showTip(event, 'fs24', 68)" class="i">tail</span> <span class="k">as</span> <span onmouseout="hideTip(event, 'fs25', 69)" onmouseover="showTip(event, 'fs25', 69)" class="i">rest</span>) <span class="k">-&gt;</span>
+        (<span class="n">10</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs22', 70)" onmouseover="showTip(event, 'fs22', 70)" class="i">b1</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs23', 71)" onmouseover="showTip(event, 'fs23', 71)" class="i">b2</span>) <span class="o">+</span> (<span class="k">if</span> <span onmouseout="hideTip(event, 'fs26', 72)" onmouseover="showTip(event, 'fs26', 72)" class="t">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs27', 73)" onmouseover="showTip(event, 'fs27', 73)" class="f">isEmpty</span> <span onmouseout="hideTip(event, 'fs24', 74)" onmouseover="showTip(event, 'fs24', 74)" class="i">tail</span> <span class="k">then</span> <span class="n">0</span> <span class="k">else</span> <span onmouseout="hideTip(event, 'fs20', 75)" onmouseover="showTip(event, 'fs20', 75)" class="f">countScore</span> <span onmouseout="hideTip(event, 'fs25', 76)" onmouseover="showTip(event, 'fs25', 76)" class="i">rest</span>)
+    | <span onmouseout="hideTip(event, 'fs28', 77)" onmouseover="showTip(event, 'fs28', 77)" class="i">r1</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs29', 78)" onmouseover="showTip(event, 'fs29', 78)" class="i">r2</span> <span class="o">::</span> (<span onmouseout="hideTip(event, 'fs30', 79)" onmouseover="showTip(event, 'fs30', 79)" class="i">b</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs24', 80)" onmouseover="showTip(event, 'fs24', 80)" class="i">tail</span> <span class="k">as</span> <span onmouseout="hideTip(event, 'fs25', 81)" onmouseover="showTip(event, 'fs25', 81)" class="i">rest</span>) <span class="k">when</span> <span onmouseout="hideTip(event, 'fs28', 82)" onmouseover="showTip(event, 'fs28', 82)" class="i">r1</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs29', 83)" onmouseover="showTip(event, 'fs29', 83)" class="i">r2</span> <span class="o">=</span> <span class="n">10</span> <span class="k">-&gt;</span>
+        (<span class="n">10</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs30', 84)" onmouseover="showTip(event, 'fs30', 84)" class="i">b</span>) <span class="o">+</span> (<span class="k">if</span> <span onmouseout="hideTip(event, 'fs26', 85)" onmouseover="showTip(event, 'fs26', 85)" class="t">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs27', 86)" onmouseover="showTip(event, 'fs27', 86)" class="f">isEmpty</span> <span onmouseout="hideTip(event, 'fs24', 87)" onmouseover="showTip(event, 'fs24', 87)" class="i">tail</span> <span class="k">then</span> <span class="n">0</span> <span class="k">else</span> <span onmouseout="hideTip(event, 'fs20', 88)" onmouseover="showTip(event, 'fs20', 88)" class="f">countScore</span> <span onmouseout="hideTip(event, 'fs25', 89)" onmouseover="showTip(event, 'fs25', 89)" class="i">rest</span>)
+    | <span onmouseout="hideTip(event, 'fs28', 90)" onmouseover="showTip(event, 'fs28', 90)" class="i">r1</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs25', 91)" onmouseover="showTip(event, 'fs25', 91)" class="i">rest</span> <span class="k">-&gt;</span>
+        <span class="i">r1</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs20', 92)" onmouseover="showTip(event, 'fs20', 92)" class="f">countScore</span> <span onmouseout="hideTip(event, 'fs25', 93)" onmouseover="showTip(event, 'fs25', 93)" class="i">rest</span>
+</code></pre></td>
+</tr>
+</table>
+<ul>
+<li>Test the function in interactive:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs31', 94)" onmouseover="showTip(event, 'fs31', 94)" class="i">countScoreResult</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs20', 95)" onmouseover="showTip(event, 'fs20', 95)" class="f">countScore</span> [<span class="n">10</span>;<span class="n">9</span>;<span class="n">1</span>;<span class="n">5</span>;<span class="n">5</span>;<span class="n">7</span>;<span class="n">2</span>;<span class="n">10</span>;<span class="n">10</span>;<span class="n">10</span>;<span class="n">9</span>;<span class="n">0</span>;<span class="n">8</span>;<span class="n">2</span>;<span class="n">9</span>;<span class="n">1</span>;<span class="n">10</span>];;
+</code></pre></td>
+</tr>
+</table>
+<h4>Value of <code>countScoreResult</code></h4>
+<table class="pre"><tr><td><pre><code>187</code></pre></td></tr></table>
+</section>
+<section >
+<ul>
+<li>Add <code>optsToOpt</code> function</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+<span class="l">8: </span>
+<span class="l">9: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs32', 96)" onmouseover="showTip(event, 'fs32', 96)" class="f">optsToOpt</span> (<span onmouseout="hideTip(event, 'fs33', 97)" onmouseover="showTip(event, 'fs33', 97)" class="i">opts</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs26', 98)" onmouseover="showTip(event, 'fs26', 98)" class="t">List</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs14', 99)" onmouseover="showTip(event, 'fs14', 99)" class="t">Option</span><span class="o">&lt;</span><span class="o">&#39;</span><span class="i">a</span><span class="o">&gt;</span><span class="o">&gt;</span>) <span class="o">:</span> <span onmouseout="hideTip(event, 'fs14', 100)" onmouseover="showTip(event, 'fs14', 100)" class="t">Option</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs26', 101)" onmouseover="showTip(event, 'fs26', 101)" class="t">List</span><span class="o">&lt;</span><span class="o">&#39;</span><span class="i">a</span><span class="o">&gt;</span><span class="o">&gt;</span>  <span class="o">=</span>
+    <span class="k">let</span> <span class="k">rec</span> <span onmouseout="hideTip(event, 'fs34', 102)" onmouseover="showTip(event, 'fs34', 102)" class="f">optsToOpt&#39;</span> <span onmouseout="hideTip(event, 'fs35', 103)" onmouseover="showTip(event, 'fs35', 103)" class="i">acc</span> <span onmouseout="hideTip(event, 'fs36', 104)" onmouseover="showTip(event, 'fs36', 104)" class="i">opts</span> <span class="o">=</span>
+        <span class="k">match</span> <span onmouseout="hideTip(event, 'fs35', 105)" onmouseover="showTip(event, 'fs35', 105)" class="i">acc</span>, <span onmouseout="hideTip(event, 'fs36', 106)" onmouseover="showTip(event, 'fs36', 106)" class="i">opts</span> <span class="k">with</span>
+        | <span onmouseout="hideTip(event, 'fs37', 107)" onmouseover="showTip(event, 'fs37', 107)" class="i">x</span>, [] <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs37', 108)" onmouseover="showTip(event, 'fs37', 108)" class="i">x</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 109)" onmouseover="showTip(event, 'fs14', 109)" class="t">Option</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs38', 110)" onmouseover="showTip(event, 'fs38', 110)" class="f">map</span> <span onmouseout="hideTip(event, 'fs26', 111)" onmouseover="showTip(event, 'fs26', 111)" class="t">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs39', 112)" onmouseover="showTip(event, 'fs39', 112)" class="f">rev</span>
+        | <span onmouseout="hideTip(event, 'fs8', 113)" onmouseover="showTip(event, 'fs8', 113)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs40', 114)" onmouseover="showTip(event, 'fs40', 114)" class="i">xs</span>, <span onmouseout="hideTip(event, 'fs8', 115)" onmouseover="showTip(event, 'fs8', 115)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs41', 116)" onmouseover="showTip(event, 'fs41', 116)" class="i">x</span> <span class="o">::</span> <span onmouseout="hideTip(event, 'fs42', 117)" onmouseover="showTip(event, 'fs42', 117)" class="i">rest</span> <span class="k">-&gt;</span>
+            <span onmouseout="hideTip(event, 'fs34', 118)" onmouseover="showTip(event, 'fs34', 118)" class="f">optsToOpt&#39;</span> (<span onmouseout="hideTip(event, 'fs8', 119)" onmouseover="showTip(event, 'fs8', 119)" class="p">Some</span> (<span onmouseout="hideTip(event, 'fs41', 120)" onmouseover="showTip(event, 'fs41', 120)" class="i">x</span> <span class="o">::</span> <span class="i">xs</span>)) <span onmouseout="hideTip(event, 'fs42', 121)" onmouseover="showTip(event, 'fs42', 121)" class="i">rest</span>
+        | _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs9', 122)" onmouseover="showTip(event, 'fs9', 122)" class="p">None</span>
+
+    <span onmouseout="hideTip(event, 'fs34', 123)" onmouseover="showTip(event, 'fs34', 123)" class="f">optsToOpt&#39;</span> (<span onmouseout="hideTip(event, 'fs8', 124)" onmouseover="showTip(event, 'fs8', 124)" class="p">Some</span> []) <span onmouseout="hideTip(event, 'fs33', 125)" onmouseover="showTip(event, 'fs33', 125)" class="i">opts</span>
+</code></pre></td>
+</tr>
+</table>
+<ul>
+<li>Test the function in interactive:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs43', 126)" onmouseover="showTip(event, 'fs43', 126)" class="i">oneOption</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs32', 127)" onmouseover="showTip(event, 'fs32', 127)" class="f">optsToOpt</span> [<span onmouseout="hideTip(event, 'fs8', 128)" onmouseover="showTip(event, 'fs8', 128)" class="p">Some</span> <span class="s">&quot;abc&quot;</span>; <span onmouseout="hideTip(event, 'fs8', 129)" onmouseover="showTip(event, 'fs8', 129)" class="p">Some</span> <span class="s">&quot;def&quot;</span>; <span onmouseout="hideTip(event, 'fs8', 130)" onmouseover="showTip(event, 'fs8', 130)" class="p">Some</span> <span class="s">&quot;ghi&quot;</span>];;
+</code></pre></td>
+</tr>
+</table>
+<h4>Value of <code>oneOption</code></h4>
+<table class="pre"><tr><td><pre><code>Some ["abc"; "def"; "ghi"]</code></pre></td></tr></table>
+</section>
+<section >
+<ul>
+<li>Add <code>bowlingScore</code> function</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs44', 131)" onmouseover="showTip(event, 'fs44', 131)" class="f">bowlingScore</span> (<span onmouseout="hideTip(event, 'fs45', 132)" onmouseover="showTip(event, 'fs45', 132)" class="i">score</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs46', 133)" onmouseover="showTip(event, 'fs46', 133)" class="t">string</span>) <span class="o">:</span> <span onmouseout="hideTip(event, 'fs14', 134)" onmouseover="showTip(event, 'fs14', 134)" class="t">Option</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs15', 135)" onmouseover="showTip(event, 'fs15', 135)" class="t">int</span><span class="o">&gt;</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs45', 136)" onmouseover="showTip(event, 'fs45', 136)" class="i">score</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs47', 137)" onmouseover="showTip(event, 'fs47', 137)" class="f">ToCharArray</span>()
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs48', 138)" onmouseover="showTip(event, 'fs48', 138)" class="t">Array</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs49', 139)" onmouseover="showTip(event, 'fs49', 139)" class="f">toList</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs10', 140)" onmouseover="showTip(event, 'fs10', 140)" class="f">parseScore</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs32', 141)" onmouseover="showTip(event, 'fs32', 141)" class="f">optsToOpt</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs14', 142)" onmouseover="showTip(event, 'fs14', 142)" class="t">Option</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs38', 143)" onmouseover="showTip(event, 'fs38', 143)" class="f">map</span> <span onmouseout="hideTip(event, 'fs20', 144)" onmouseover="showTip(event, 'fs20', 144)" class="f">countScore</span>
+</code></pre></td>
+</tr>
+</table>
+<ul>
+<li>Test the function in interactive:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs50', 145)" onmouseover="showTip(event, 'fs50', 145)" class="i">bowlingScoreResult</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs44', 146)" onmouseover="showTip(event, 'fs44', 146)" class="f">bowlingScore</span> <span class="s">&quot;X9/5/72XXX9-8/9/X&quot;</span>;;
+</code></pre></td>
+</tr>
+</table>
+<h4>Value of <code>bowlingScoreResult</code></h4>
+<table class="pre"><tr><td><pre><code>Some 187</code></pre></td></tr></table>
+</section>
+<section >
+<h3>Summary</h3>
+<ul>
+<li>Creating F# Library projects in VS</li>
+<li>Declaring Bowling module</li>
+<li>Testing code in interactive</li>
+</ul>
+</section>
+<section >
+<h3>Links</h3>
+<ul>
+<li><a href="https://fsharpforfunandprofit.com/installing-and-using/">Installing and using F#</a> by Scott Wlaschin</li>
+<li><a href="https://fsharpforfunandprofit.com/posts/organizing-functions/">Organizing functions - Nested functions and modules</a> by Scott Wlaschin</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>F# Console app</h2>
+<ul>
+<li>Create new F# Console Application "bowling.console"</li>
+<li>Add <strong>project reference</strong> from "bowling.console" to "bowling"</li>
+<li>Compile "bowling" project</li>
+</ul>
+</section>
+<section >
+<ul>
+<li>Invoke <code>Bowling.bowlingScore</code> on example input and print output</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Learn more about F# at http://fsharp.org</span>
+<span class="c">// See the &#39;F# Tutorial&#39; project for more help.</span>
+
+[&lt;<span onmouseout="hideTip(event, 'fs51', 147)" onmouseover="showTip(event, 'fs51', 147)" class="i">EntryPoint</span>&gt;]
+<span class="k">let</span> <span class="i">main</span> <span class="i">argv</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs52', 148)" onmouseover="showTip(event, 'fs52', 148)" class="i">printfn</span> <span class="s">&quot;%A&quot;</span> (<span class="i">Bowling</span><span class="o">.</span><span class="i">bowlingScore</span> <span class="s">&quot;XXXXXXXXXXXX&quot;</span>)
+    <span class="n">0</span> <span class="c">// return an integer exit code</span>
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<ul>
+<li>Run it!</li>
+</ul>
+<p><img src="images/some_300.png" alt="some_300.png" /></p>
+</section>
+<section >
+<h3>Exercise</h3>
+<p>Invoke <code>Bowling.bowlingScore</code> for each argument from <code>argv</code> (console arguments)</p>
+<p><img src="images/array_iter.png" alt="array_iter.png" /></p>
+<p>Hint: Use <code>Array.iter</code> function to perform an action for each element from an array</p>
+</section>
+<section >
+<h3>Summary</h3>
+<ul>
+<li>Creating F# console apps</li>
+<li>Printing to console</li>
+</ul>
+</section>
+<section >
+<h3>Links</h3>
+<ul>
+<li><a href="https://fsharpforfunandprofit.com/posts/printf/">Formatted text using printf</a> by Scott Wlaschin</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>F# Build script - <a href="http://fsharp.github.io/FAKE/">FAKE</a></h2>
+<h3><a href="http://fsprojects.github.io/Paket/">Paket</a> for managing dependencies</h3>
+</section>
+<section >
+<ul>
+<li>Create new directory ".paket" next to the ".sln" solution file</li>
+<li>Download paket.bootstrapper.exe from <a href="https://github.com/fsprojects/Paket/releases/download/3.9.5/paket.bootstrapper.exe">here</a> and save it in ".paket" directory</li>
+<li>Run paket.bootstrapper.exe from console to download newest Paket, and then invoke <code>paket.exe init</code>:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="cmd">&gt; .paket\paket.bootrapper.exe
+&gt; .paket\paket.exe init
+</code></pre></td></tr></table>
+</section>
+<section >
+<ul>
+<li>In solution, add "New Solution Folder" called ".project"</li>
+<li>"Add Existing Item" - add "paket.dependencies" file to the ".project" solution folder</li>
+<li>Open "paket.dependencies" file in the VS editor</li>
+</ul>
+</section>
+<section >
+<p>Modify the "paket.dependencies" file to add "Build" group and "FAKE" package:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">group</span> Build
+    <span class="k">source</span> https://www.nuget.org/api/v2
+
+    <span class="k">nuget</span> FAKE
+</code></pre></td></tr></table>
+</section>
+<section >
+<p>Run paket install:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="cmd">&gt; .paket\paket.exe install
+</code></pre></td></tr></table>
+</section>
+<section >
+<p>Add "New Item", "build.cmd" to the ".project" solution folder:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="cmd">@echo off
+cls
+.paket\paket.bootstrapper.exe
+.paket\paket.exe restore
+packages\Build\FAKE\tools\FAKE.exe build.fsx %*
+</code></pre></td></tr></table>
+</section>
+<section >
+<p>Add "New Item", "build.fsx" to the ".project" solution folder:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#r</span> <span class="s">@&quot;packages/Build/FAKE/tools/FakeLib.dll&quot;</span>
+
+<span class="k">open</span> <span class="i">Fake</span>
+
+<span class="i">Target</span> <span class="s">&quot;Build&quot;</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span>
+    <span class="i">MSBuildRelease</span> <span class="s">&quot;bin&quot;</span> <span class="s">&quot;Build&quot;</span> [<span class="s">&quot;bowling.sln&quot;</span>]
+    <span class="o">|&gt;</span> <span class="i">Log</span> <span class="s">&quot;Build output&quot;</span>
+)
+
+<span class="i">RunTargetOrDefault</span> <span class="s">&quot;Build&quot;</span>
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<p>Run the build script:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">build</span><span class="o">.</span><span class="i">cmd</span>
+</code></pre></td>
+</tr>
+</table>
+<p><img src="images/build_hello_fake.png" alt="build_hello_fake.png" /></p>
+</section>
+<section >
+<h3>Summary</h3>
+<ul>
+<li>Paket for managing dependencies</li>
+<li>FAKE for build scripts</li>
+<li>Invoking build script from command line</li>
+</ul>
+</section>
+<section >
+<h3>Links</h3>
+<ul>
+<li><a href="http://fsharp.github.io/FAKE/">FAKE</a></li>
+<li><a href="http://fsprojects.github.io/Paket/">Paket</a></li>
+<li><a href="https://fsprojects.github.io/ProjectScaffold/">ProjectScaffold</a></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>F# Test project - <a href="https://xunit.github.io/">xUnit</a></h2>
+</section>
+<section >
+<ul>
+<li>Create new F# Library "bowling.tests" for .NET <strong>4.5.1</strong></li>
+<li>Remove "Script.fsx" file</li>
+<li>Rename "Library1.fs" to "Tests.fs"</li>
+<li>Add Project Reference from "bowling.tests" to "bowling"</li>
+<li>Remove boilerplate code and declare <code>Bowling.Tests</code> module:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">module</span> <span class="i">Bowling</span><span class="o">.</span><span class="i">Tests</span>
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<ul>
+<li>Open "paket.dependencies" in VS editor,</li>
+<li>Add "xunit.runner.console" package to "Build" group,</li>
+<li>Add new group "Tests" with "framework: net451",</li>
+<li>Add "xUnit" and "FsUnit.xUnit" nugets to "Tests" group</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">group</span> Build
+    <span class="k">source</span> https://www.nuget.org/api/v2
+
+    <span class="k">nuget</span> FAKE
+    <span class="k">nuget</span> xunit.runner.console
+
+<span class="k">group</span> Tests
+    <span class="k">framework</span>: net451
+    <span class="k">source</span> https://www.nuget.org/api/v2
+    
+    <span class="k">nuget</span> xUnit
+    <span class="k">nuget</span> FsUnit.xUnit
+</code></pre></td></tr></table>
+</section>
+<section >
+<ul>
+<li>Add "New Item", "paket.references" (General -&gt; Text File) to "bowling.tests" project</li>
+<li>Open "paket.references" file in VS editor and fill it with below:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">group</span> Tests
+    xUnit
+    FsUnit.xUnit
+</code></pre></td></tr></table>
+</section>
+<section >
+<p>Run "paket install":</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="cmd">&gt; .paket\paket.exe install
+</code></pre></td></tr></table>
+</section>
+<section >
+<ul>
+<li>Open "build.fsx" build script in VS editor,</li>
+<li>Add "Tests" build target:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+<span class="l">8: </span>
+<span class="l">9: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span class="i">Fake</span><span class="o">.</span><span class="i">Testing</span> <span class="c">// for testing helper functions</span>
+
+<span class="i">Target</span> <span class="s">&quot;Tests&quot;</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span>
+    [<span class="s">&quot;bin/bowling.tests.dll&quot;</span>]
+    <span class="o">|&gt;</span> <span class="i">xUnit2</span> (<span class="k">fun</span> <span class="i">xunitParams</span> <span class="k">-&gt;</span> 
+        { <span class="i">xunitParams</span> <span class="k">with</span> <span class="i">ToolPath</span> <span class="o">=</span> <span class="s">@&quot;packages/Build/xunit.runner.console/&quot;</span> 
+                                    <span class="o">+</span> <span class="s">@&quot;tools/xunit.console.exe&quot;</span> }
+    )
+)
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<p>At the bottom of "build.fsx", specify Target dependency and default target:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Targets above    </span>
+
+<span class="s">&quot;Build&quot;</span>
+    <span class="o">==&gt;</span> <span class="s">&quot;Tests&quot;</span>
+
+<span class="i">RunTargetOrDefault</span> <span class="s">&quot;Tests&quot;</span>
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+<span class="l">21: </span>
+<span class="l">22: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="prep">#r</span> <span class="s">@&quot;packages/Build/FAKE/tools/FakeLib.dll&quot;</span>
+
+<span class="k">open</span> <span class="i">Fake</span>
+<span class="k">open</span> <span class="i">Fake</span><span class="o">.</span><span class="i">Testing</span>
+
+<span class="i">Target</span> <span class="s">&quot;Build&quot;</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span>
+    <span class="i">MSBuildRelease</span> <span class="s">&quot;bin&quot;</span> <span class="s">&quot;Build&quot;</span> [<span class="s">&quot;bowling.sln&quot;</span>]
+    <span class="o">|&gt;</span> <span class="i">Log</span> <span class="s">&quot;Build output&quot;</span>
+)
+
+<span class="i">Target</span> <span class="s">&quot;Tests&quot;</span> (<span class="k">fun</span> _ <span class="k">-&gt;</span>
+    [<span class="s">&quot;bin/bowling.tests.dll&quot;</span>]
+    <span class="o">|&gt;</span> <span class="i">xUnit2</span> (<span class="k">fun</span> <span class="i">xunitParams</span> <span class="k">-&gt;</span> 
+        { <span class="i">xunitParams</span> <span class="k">with</span> <span class="i">ToolPath</span> <span class="o">=</span> <span class="s">@&quot;packages/Build/xunit.runner.console/&quot;</span> 
+                                    <span class="o">+</span> <span class="s">@&quot;tools/xunit.console.exe&quot;</span> }
+    )
+)
+
+<span class="s">&quot;Build&quot;</span>
+    <span class="o">==&gt;</span> <span class="s">&quot;Tests&quot;</span>
+
+<span class="i">RunTargetOrDefault</span> <span class="s">&quot;Tests&quot;</span>
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<ul>
+<li>Open "Tests.fs" source file in editor,</li>
+<li>Add unit test for checking score of 12 Strikes:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fs"><span class="k">module</span> Bowling.Tests
+
+<span class="k">open</span> Xunit
+<span class="k">open</span> FsUnit.Xunit
+    
+<span class="o">[</span>&lt;Fact&gt;<span class="o">]</span>
+<span class="k">let</span> ``<span class="n">12</span> strikes <span class="k">in</span> row`` () =
+    <span class="k">let</span> expected = Some <span class="n">270</span>
+    <span class="k">let</span> actual = Bowling.bowlingScore <span class="s">"XXXXXXXXXXXX"</span>
+    actual <span class="o">|</span>&gt; should equal expected
+</code></pre></td></tr></table>
+</section>
+<section >
+<p>Run the build script (without any additional parameters):</p>
+<p><img src="images/test_failure.png" alt="test_failure.png" /></p>
+</section>
+<section >
+<h3>Exercises</h3>
+<ul>
+<li>Fix the test</li>
+<li>
+Add three more test cases for following scores:
+<ul>
+<li>"9-9-9-9-9-9-9-9-9-9-"</li>
+<li>"5/5/5/5/5/5/5/5/5/5/5"</li>
+<li>"X9/5/72XXX9-8/9/X"</li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Summary</h3>
+<ul>
+<li>Creating test library in F#</li>
+<li>Adding test nuget packages with Paket</li>
+<li>Attaching tests to the build script pipeline</li>
+<li>Writing unit tests in F#</li>
+</ul>
+</section>
+<section >
+<h3>Links</h3>
+<ul>
+<li><a href="https://fsprojects.github.io/FsUnit/">FsUnit project</a></li>
+<li><a href="https://fsharpforfunandprofit.com/posts/low-risk-ways-to-use-fsharp-at-work-3/">Using F# for testing</a> by Scott Wlaschin</li>
+<li><a href="http://www.swensensoftware.com/unquote">Unquote project</a></li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>C# Window app - WPF (integration with F#)</h2>
+</section>
+<section >
+<ul>
+<li>Add C# Windows "WPF Application" project, "bowling.wpf" to the solution,</li>
+<li>Add project reference from "bolwing.wpf" to "bowling",</li>
+<li>Design awesome GUI with a TextBox, TextBlock and a Button:</li>
+</ul>
+<p><img src="images/gui.png" alt="gui.png" /></p>
+</section>
+<section >
+<ul>
+<li>Open "paket.dependencies" file,</li>
+<li>Add "FSharp.Core" package to main group:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">source</span> https://www.nuget.org/api/v2
+
+<span class="k">nuget</span> FSharp.Core
+
+<span class="k">group</span> Build
+    <span class="k">source</span> https://www.nuget.org/api/v2
+
+    <span class="k">nuget</span> FAKE
+    <span class="k">nuget</span> xunit.runner.console
+
+<span class="k">group</span> Tests
+    <span class="k">framework</span>: net451
+    <span class="k">source</span> https://www.nuget.org/api/v2
+    
+    <span class="k">nuget</span> xUnit
+    <span class="k">nuget</span> FsUnit.xUnit
+</code></pre></td></tr></table>
+</section>
+<section >
+<p>Add "New Item", "paket.references" to "bowling.wpf":</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="paket">FSharp.Core
+</code></pre></td></tr></table>
+</section>
+<section >
+<p>Run paket install:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="cmd">&gt; .paket\paket.exe install
+</code></pre></td></tr></table>
+</section>
+<section >
+<p>Add action on button click:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+<span class="l">8: </span>
+<span class="l">9: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="csharp"><span class="k">private</span> <span class="k">void</span> button_Click(<span class="k">object</span> sender, RoutedEventArgs e)
+{
+    <span class="k">var</span> input <span class="o">=</span> textBox.Text;
+    <span class="k">var</span> score <span class="o">=</span> Bowling.bowlingScore(input);
+    textBlock.Text <span class="o">=</span> 
+        FSharpOption&lt;<span class="k">int</span>&gt;.get_IsSome(score) <span class="o">?</span> 
+        <span class="s">"Score: "</span> <span class="o">+</span> score.Value.ToString() <span class="o">:</span> 
+        <span class="s">"Wrong score!"</span>;
+}
+</code></pre></td></tr></table>
+</section>
+<section >
+<p>Run it!</p>
+<p><img src="images/wpf_runit.png" alt="wpf_runit.png" /></p>
+</section>
+<section >
+<h3>The F# Component Design Guidelines</h3>
+<h4>Below snippet doesn't feel nice in C#:</h4>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="csharp">textBlock.Text <span class="o">=</span> 
+    FSharpOption&lt;<span class="k">int</span>&gt;.get_IsSome(score) <span class="o">?</span> 
+    <span class="s">"Score: "</span> <span class="o">+</span> score.Value.ToString() <span class="o">:</span> 
+    <span class="s">"Wrong score!"</span>;
+</code></pre></td></tr></table>
+</section>
+<section >
+<h3>The F# Component Design Guidelines</h3>
+<p><a href="http://fsharp.org/specs/component-design-guidelines/">http://fsharp.org/specs/component-design-guidelines/</a></p>
+<blockquote>
+<p>✔ Consider using the TryGetValue pattern instead of returning F# option values (option) in vanilla .NET APIs, and prefer method overloading to taking F# option values as arguments.</p>
+</blockquote>
+<p>This tick can be found <a href="http://fsharp.org/specs/component-design-guidelines#object-and-member-design--for-libraries-for-use-from-other-net-languages">in this section</a> of above guidelines.</p>
+</section>
+<section >
+<h3>Exercise</h3>
+<p>Create new function <code>TryGetBowlingScore</code> in <code>Bowling</code> module for better interop with C#, conforming to the F# Component Design Guidelines.
+Use the new function in code behind button click in C#.</p>
+<h4>Skeleton of the function</h4>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span class="i">TryGetBowlingScore</span>(<span class="i">score</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs46', 149)" onmouseover="showTip(event, 'fs46', 149)" class="i">string</span>, <span class="i">result</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 150)" onmouseover="showTip(event, 'fs53', 150)" class="i">byref</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs15', 151)" onmouseover="showTip(event, 'fs15', 151)" class="i">int</span><span class="o">&gt;</span>) <span class="o">:</span> <span onmouseout="hideTip(event, 'fs54', 152)" onmouseover="showTip(event, 'fs54', 152)" class="i">bool</span> <span class="o">=</span> 
+    <span class="i">result</span> <span class="o">&lt;-</span> <span class="n">0</span>
+    <span class="k">false</span>
+</code></pre></td>
+</tr>
+</table>
+<h4>New stuff - assign value operator</h4>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span class="k">mutable</span> <span class="i">x</span> <span class="o">=</span> <span class="n">0</span>
+<span class="i">x</span> <span class="o">&lt;-</span> <span class="n">5</span>
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<h3>Using .NET libraries from F#</h3>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> (<span class="i">i1success</span>,<span class="i">i1</span>) <span class="o">=</span> <span onmouseout="hideTip(event, 'fs3', 153)" onmouseover="showTip(event, 'fs3', 153)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs55', 154)" onmouseover="showTip(event, 'fs55', 154)" class="i">Int32</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs56', 155)" onmouseover="showTip(event, 'fs56', 155)" class="i">TryParse</span>(<span class="s">&quot;123&quot;</span>);
+<span class="k">if</span> <span class="i">i1success</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs52', 156)" onmouseover="showTip(event, 'fs52', 156)" class="i">printfn</span> <span class="s">&quot;parsed as %i&quot;</span> <span class="i">i1</span> <span class="k">else</span> <span onmouseout="hideTip(event, 'fs52', 157)" onmouseover="showTip(event, 'fs52', 157)" class="i">printfn</span> <span class="s">&quot;parse failed&quot;</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs57', 158)" onmouseover="showTip(event, 'fs57', 158)" class="i">dict</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs3', 159)" onmouseover="showTip(event, 'fs3', 159)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs58', 160)" onmouseover="showTip(event, 'fs58', 160)" class="i">Collections</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs59', 161)" onmouseover="showTip(event, 'fs59', 161)" class="i">Generic</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs60', 162)" onmouseover="showTip(event, 'fs60', 162)" class="i">Dictionary</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs46', 163)" onmouseover="showTip(event, 'fs46', 163)" class="i">string</span>,<span onmouseout="hideTip(event, 'fs46', 164)" onmouseover="showTip(event, 'fs46', 164)" class="i">string</span><span class="o">&gt;</span>()
+<span onmouseout="hideTip(event, 'fs57', 165)" onmouseover="showTip(event, 'fs57', 165)" class="i">dict</span><span class="o">.</span><span class="i">Add</span>(<span class="s">&quot;a&quot;</span>,<span class="s">&quot;hello&quot;</span>)
+<span class="k">let</span> (<span class="i">e1success</span>,<span class="i">e1</span>) <span class="o">=</span> <span onmouseout="hideTip(event, 'fs57', 166)" onmouseover="showTip(event, 'fs57', 166)" class="i">dict</span><span class="o">.</span><span class="i">TryGetValue</span>(<span class="s">&quot;a&quot;</span>)
+<span class="k">let</span> (<span class="i">e2success</span>,<span class="i">e2</span>) <span class="o">=</span> <span onmouseout="hideTip(event, 'fs57', 167)" onmouseover="showTip(event, 'fs57', 167)" class="i">dict</span><span class="o">.</span><span class="i">TryGetValue</span>(<span class="s">&quot;b&quot;</span>)
+
+<span class="k">let</span> <span class="i">makeResource</span> <span class="i">name</span> <span class="o">=</span> 
+    { <span class="k">new</span> <span onmouseout="hideTip(event, 'fs3', 168)" onmouseover="showTip(event, 'fs3', 168)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs61', 169)" onmouseover="showTip(event, 'fs61', 169)" class="i">IDisposable</span> 
+        <span class="k">with</span> <span class="k">member</span> <span class="i">this</span><span class="o">.</span><span class="i">Dispose</span>() <span class="o">=</span> <span onmouseout="hideTip(event, 'fs52', 170)" onmouseover="showTip(event, 'fs52', 170)" class="i">printfn</span> <span class="s">&quot;%s disposed&quot;</span> <span class="i">name</span> }
+</code></pre></td>
+</tr>
+</table>
+<p><a href="https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/">https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/</a></p>
+</section>
+<section >
+<h3>Summary</h3>
+<ul>
+<li>Referencing F# code from C# (FSharp.Core package)</li>
+<li>Conforming to the F# Component Design Guidelines</li>
+<li>Using .NET libraries from F#</li>
+</ul>
+</section>
+<section >
+<h3>Links</h3>
+<ul>
+<li><a href="http://fsharp.org/specs/component-design-guidelines/">The F# Component Design Guidelines</a></li>
+<li><a href="https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/">Seamless interoperation with .NET libraries</a> by Scott Wlaschin</li>
+</ul>
+</section>
+</section>
+<section >
+<section >
+<h2>F# Web app</h2>
+</section>
+<section >
+<ul>
+<li>Add F# Console application project, "bowling.web" to the solution,</li>
+<li>Add project reference from "bolwing.web" to "bowling",</li>
+</ul>
+</section>
+<section >
+<ul>
+<li>Open "paket.dependencies" file,</li>
+<li>Add "Suave" package to main group:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">source</span> https://www.nuget.org/api/v2
+
+<span class="k">nuget</span> FSharp.Core
+<span class="k">nuget</span> Suave
+
+<span class="k">group</span> Build
+    <span class="k">source</span> https://www.nuget.org/api/v2
+
+    <span class="k">nuget</span> FAKE
+    <span class="k">nuget</span> xunit.runner.console
+
+<span class="k">group</span> Tests
+    <span class="k">framework</span>: net451
+    <span class="k">source</span> https://www.nuget.org/api/v2
+    
+    <span class="k">nuget</span> xUnit
+    <span class="k">nuget</span> FsUnit.xUnit
+</code></pre></td></tr></table>
+</section>
+<section >
+<p>Add "New Item", "paket.references" to "bowling.web":</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="paket">Suave
+</code></pre></td></tr></table>
+</section>
+<section >
+<p>Run paket install:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="cmd">&gt; .paket\paket.exe install
+</code></pre></td></tr></table>
+</section>
+<section >
+<ul>
+<li>Open "Program.fs" from "bowling.web",</li>
+<li>Remove boilerplater code, and insert following hello world suave:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span class="i">Suave</span>
+
+<span class="i">startWebServer</span> <span class="i">defaultConfig</span> (<span class="i">Successful</span><span class="o">.</span><span class="i">OK</span> <span class="s">&quot;Hello world&quot;</span>)
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<p>Run it!</p>
+<p><img src="images/hello_world_suave.png" alt="hello_world_suave.png" /></p>
+</section>
+<section >
+<h3>Exercise</h3>
+<p>Implement <code>scoreHandler</code> function so that:</p>
+<ul>
+<li>it responds with 200 OK with score for correct input,</li>
+<li>it responds with 400 BAD REQUEST with "Wrong result" message for wrong input:</li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span class="i">Suave</span>
+
+<span class="k">let</span> <span class="i">scoreHandler</span> (<span class="i">input</span><span class="o">:</span> <span onmouseout="hideTip(event, 'fs46', 171)" onmouseover="showTip(event, 'fs46', 171)" class="i">string</span>) <span class="o">:</span> <span class="i">WebPart</span> <span class="o">=</span>
+    <span class="i">Successful</span><span class="o">.</span><span class="i">OK</span> <span class="s">&quot;Hello world&quot;</span>
+
+<span class="i">startWebServer</span> <span class="i">defaultConfig</span> (<span class="i">Filters</span><span class="o">.</span><span class="i">pathScan</span> <span class="s">&quot;/%s&quot;</span> <span class="i">scoreHandler</span>)
+</code></pre></td>
+</tr>
+</table>
+<p>Hint: Make use of <code>Successful.OK</code> and <code>RequestErrors.BAD_REQUEST</code> functions. Both are of type <code>string -&gt; WebPart</code>.</p>
+</section>
+<section >
+<h2>Demo: .fs files order in project</h2>
+<h3>(order matters)</h3>
+<p>At first it looks like a limitation but it really turns out to be one of the most <strong>beloved</strong> F# features</p>
+</section>
+<section >
+<h3>Summary</h3>
+<ul>
+<li>Suave.IO is a very light-weight server library, easy to use with F#</li>
+<li>.fs file order inside project matters</li>
+</ul>
+</section>
+<section >
+<h3>Links</h3>
+<ul>
+<li><a href="https://suave.io/">Suave</a></li>
+<li><a href="https://theimowski.gitbooks.io/suave-music-store">Suave Music Store Gitbook</a> by Tomasz Heimowski</li>
+<li><a href="https://fsharpforfunandprofit.com/posts/cyclic-dependencies">Cyclic dependencies are evil</a> by Scott Wlaschin</li>
+</ul>
+</section>
+</section>
+<section >
+<h2>Summary</h2>
+<ul>
+<li>F# Library (bowling score)</li>
+<li>F# Console app</li>
+<li>F# Build script - <a href="http://fsharp.github.io/FAKE/">FAKE</a></li>
+<li>F# Test project - <a href="https://xunit.github.io/">xUnit</a></li>
+<li>C# Window app - WPF (integration with F#)</li>
+<li>F# Web app</li>
+</ul>
 </section>
 
 

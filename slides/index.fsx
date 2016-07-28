@@ -100,7 +100,7 @@ let parseScoreResult = parseScore ['4'; '/'];;
 
 * Extend `Digit` active pattern to recognize '-' character as well,
 * Rename `Digit` to `Pins` to better reflect its intent after the change,
-* Refactor `parseScore` function,
+* Refactor `parseScore` function - make use of the fact that `Pins` recognizes now '-' and remove redundant pattern matching case,
 * In interactive, make sure that after refactoring the code still works.  
 
 ---

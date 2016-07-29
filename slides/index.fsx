@@ -337,21 +337,24 @@ Run the build script:
 
 ---
 
-* Create new F# Library "bowling.tests" for .NET **4.5.1**
-* Remove "Script.fsx" file
-* Rename "Library1.fs" to "Tests.fs"
-* Add Project Reference from "bowling.tests" to "bowling"
+* Create new F# Library "bowling.tests" for .NET **4.5.1**,
+* Remove "Script.fsx" file,
+* Rename "Library1.fs" to "Tests.fs",
+* "Add new item", "App.config" application configuration file to "bowling.tests",
+* Add Project Reference from "bowling.tests" to "bowling",
 * Remove boilerplate code and declare `Bowling.Tests` module:
 
 
     module Bowling.Tests
 
+#### ! Save all changes in Visual Studio
+
 ---
 
 * Open "paket.dependencies" in VS editor,
 * Add "xunit.runner.console" package to "Build" group,
-* Add new group "Tests" with "framework: net451",
-* Add "xUnit" and "FsUnit.xUnit" nugets to "Tests" group
+* Add new group "Tests" with "framework: net451" and "redirects: on",
+* Add "FSharp.Core", "xUnit" and "FsUnit.xUnit" nugets to "Tests" group
 
 
     [lang=paket]
@@ -362,9 +365,11 @@ Run the build script:
         nuget xunit.runner.console
 
     group Tests
+        redirects: on
         framework: net451
         source https://www.nuget.org/api/v2
         
+        nuget FSharp.Core
         nuget xUnit
         nuget FsUnit.xUnit
 
@@ -376,6 +381,7 @@ Run the build script:
 
     [lang=paket]
     group Tests
+        FSharp.Core
         xUnit
         FsUnit.xUnit
 

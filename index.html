@@ -535,10 +535,11 @@ packages\Build\FAKE\tools\FAKE.exe build.fsx %*
 </section>
 <section >
 <ul>
-<li>Create new F# Library "bowling.tests" for .NET <strong>4.5.1</strong></li>
-<li>Remove "Script.fsx" file</li>
-<li>Rename "Library1.fs" to "Tests.fs"</li>
-<li>Add Project Reference from "bowling.tests" to "bowling"</li>
+<li>Create new F# Library "bowling.tests" for .NET <strong>4.5.1</strong>,</li>
+<li>Remove "Script.fsx" file,</li>
+<li>Rename "Library1.fs" to "Tests.fs",</li>
+<li>"Add new item", "App.config" application configuration file to "bowling.tests",</li>
+<li>Add Project Reference from "bowling.tests" to "bowling",</li>
 <li>Remove boilerplate code and declare <code>Bowling.Tests</code> module:</li>
 </ul>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
@@ -547,13 +548,14 @@ packages\Build\FAKE\tools\FAKE.exe build.fsx %*
 </code></pre></td>
 </tr>
 </table>
+<h4>! Save all changes in Visual Studio</h4>
 </section>
 <section >
 <ul>
 <li>Open "paket.dependencies" in VS editor,</li>
 <li>Add "xunit.runner.console" package to "Build" group,</li>
-<li>Add new group "Tests" with "framework: net451",</li>
-<li>Add "xUnit" and "FsUnit.xUnit" nugets to "Tests" group</li>
+<li>Add new group "Tests" with "framework: net451" and "redirects: on",</li>
+<li>Add "FSharp.Core", "xUnit" and "FsUnit.xUnit" nugets to "Tests" group</li>
 </ul>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
@@ -567,6 +569,8 @@ packages\Build\FAKE\tools\FAKE.exe build.fsx %*
 <span class="l">10: </span>
 <span class="l">11: </span>
 <span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">group</span> Build
     <span class="k">source</span> https://www.nuget.org/api/v2
@@ -575,9 +579,11 @@ packages\Build\FAKE\tools\FAKE.exe build.fsx %*
     <span class="k">nuget</span> xunit.runner.console
 
 <span class="k">group</span> Tests
+    <span class="k">redirects</span>: on
     <span class="k">framework</span>: net451
     <span class="k">source</span> https://www.nuget.org/api/v2
     
+    <span class="k">nuget</span> FSharp.Core
     <span class="k">nuget</span> xUnit
     <span class="k">nuget</span> FsUnit.xUnit
 </code></pre></td></tr></table>
@@ -590,8 +596,10 @@ packages\Build\FAKE\tools\FAKE.exe build.fsx %*
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
+<span class="l">4: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="paket"><span class="k">group</span> Tests
+    FSharp.Core
     xUnit
     FsUnit.xUnit
 </code></pre></td></tr></table>

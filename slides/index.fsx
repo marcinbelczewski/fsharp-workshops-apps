@@ -13,6 +13,7 @@
 
 * Open up new instance of **Visual Studio 2015**
 * Make sure you have F# templates (in `Other Languages`)
+* Let's stick to .NET Framework v4.5.1
 
 ![fsharp_templates.png](images/fsharp_templates.png)
 
@@ -67,15 +68,14 @@ let (|Digit|_|) char =
 
  * Copy code for `parseScore` function after `Digit`*)
 
-
 let rec parseScore (chars: list<char>) : list<Option<int>> =
     match chars with
     | [] -> []
     | 'X' :: rest -> Some 10 :: parseScore rest
     | Digit x :: '/' :: rest -> Some x :: Some (10 - x) :: parseScore rest
+    | Digit x :: rest -> Some x :: parseScore rest
     | '-' :: '/' :: rest -> Some 0 :: Some 10 :: parseScore rest
     | '-' :: rest -> Some 0 :: parseScore rest
-    | Digit x :: rest -> Some x :: parseScore rest
     | _ :: rest -> None :: parseScore rest
 
 (**
@@ -100,7 +100,7 @@ let parseScoreResult = parseScore ['4'; '/'];;
 
 * Extend `Digit` active pattern to recognize '-' character as well,
 * Rename `Digit` to `Pins` to better reflect its intent after the change,
-* Refactor `parseScore` function - make use of the fact that `Pins` recognizes now '-' and remove redundant pattern matching case,
+* Refactor `parseScore` function - make use of the fact that `Pins` recognizes now '-' and remove redundant pattern matching case(s),
 * In interactive, make sure that after refactoring the code still works.  
 
 ---
@@ -108,15 +108,14 @@ let parseScoreResult = parseScore ['4'; '/'];;
 * Add `countScore` function *)
 
 let rec countScore (scores: list<int>) : int =
-    match scores with
-    | [] -> 
-        0
-    | 10 :: (b1 :: b2 :: tail as rest) ->
-        (10 + b1 + b2) + (if List.isEmpty tail then 0 else countScore rest)
-    | r1 :: r2 :: (b :: tail as rest) when r1 + r2 = 10 ->
-        (10 + b) + (if List.isEmpty tail then 0 else countScore rest)
-    | r1 :: rest ->
-        r1 + countScore rest
+    match scores with 
+    | [] -> 0
+    | 10 :: (b1 :: b2 :: tail as next) ->
+        10 + b1 + b2 + (if tail = [] then 0 else countScore next)
+    | r1 :: r2 :: (b1 :: tail as next) when r1 + r2 = 10 ->
+        10 + b1 +      (if tail = [] then 0 else countScore next)
+    | r1 :: r2 :: next ->
+        r1 + r2 + countScore next
 
 (**
 * Test the function in interactive:
@@ -245,6 +244,7 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 * Create new directory ".paket" next to the ".sln" solution file
 * Download paket.bootstrapper.exe from [here](https://github.com/fsprojects/Paket/releases/download/3.9.5/paket.bootstrapper.exe) and save it in ".paket" directory
+* In console, change directory to where the solution file and ".paket" folder are. **Do not** change directory to ".paket"
 * Run paket.bootstrapper.exe from console to download newest Paket, and then invoke `paket.exe init`:
 
 
@@ -353,8 +353,8 @@ Run the build script:
 
 * Open "paket.dependencies" in VS editor,
 * Add "xunit.runner.console" package to "Build" group,
-* Add new group "Tests" with "framework: net451" and "redirects: on",
-* Add "FSharp.Core", "xUnit" and "FsUnit.xUnit" nugets to "Tests" group
+* Add new group "Tests" with "framework: net451",
+* Add "FSharp.Core" with "redirects: force" option, "xUnit" and "FsUnit.xUnit" nugets to "Tests" group
 
 
     [lang=paket]
@@ -365,11 +365,10 @@ Run the build script:
         nuget xunit.runner.console
 
     group Tests
-        redirects: on
         framework: net451
         source https://www.nuget.org/api/v2
         
-        nuget FSharp.Core
+        nuget FSharp.Core redirects: force
         nuget xUnit
         nuget FsUnit.xUnit
 
@@ -413,7 +412,7 @@ Run "paket install":
 
 ---
 
-At the bottom of "build.fsx", specify Target dependency and default target:
+At the bottom of "build.fsx", specify Target dependency and change default target to "Tests":
 
 
     [lang=fsharp]
@@ -499,6 +498,7 @@ Run the build script (without any additional parameters):
 
 * [FsUnit project](https://fsprojects.github.io/FsUnit/)
 * [Using F# for testing](https://fsharpforfunandprofit.com/posts/low-risk-ways-to-use-fsharp-at-work-3/) by Scott Wlaschin
+* [An introduction to property-based testing](https://fsharpforfunandprofit.com/posts/property-based-testing/) by Scott Wlaschin
 * [Unquote project](http://www.swensensoftware.com/unquote)
 
 ***
@@ -516,13 +516,13 @@ Run the build script (without any additional parameters):
 ---
 
 * Open "paket.dependencies" file,
-* Add "FSharp.Core" package to main group:
+* Add "FSharp.Core" package with "redirects: force" option to main group:
 
 
     [lang=paket]
     source https://www.nuget.org/api/v2
 
-    nuget FSharp.Core
+    nuget FSharp.Core redirects: force
 
     group Build
         source https://www.nuget.org/api/v2
@@ -534,6 +534,7 @@ Run the build script (without any additional parameters):
         framework: net451
         source https://www.nuget.org/api/v2
         
+        nuget FSharp.Core redirects: force
         nuget xUnit
         nuget FsUnit.xUnit
 
@@ -673,7 +674,7 @@ https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/
     [lang=paket]
     source https://www.nuget.org/api/v2
 
-    nuget FSharp.Core
+    nuget FSharp.Core redirects: force
     nuget Suave
 
     group Build
@@ -685,10 +686,10 @@ https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/
     group Tests
         framework: net451
         source https://www.nuget.org/api/v2
-        
+
+        nuget FSharp.Core redirects: force
         nuget xUnit
         nuget FsUnit.xUnit
-
 ---
 
 Add "New Item", "paket.references" to "bowling.web":
@@ -762,6 +763,7 @@ At first it looks like a limitation but it really turns out to be one of the mos
 
 * [Suave](https://suave.io/)
 * [Suave Music Store Gitbook](https://theimowski.gitbooks.io/suave-music-store) by Tomasz Heimowski
+* [Suave as a service with Topshelf](http://blog.2mas.xyz/suave-as-a-service-with-topshelf/) by Tomas Jansson
 * [Cyclic dependencies are evil](https://fsharpforfunandprofit.com/posts/cyclic-dependencies) by Scott Wlaschin
 
 ***

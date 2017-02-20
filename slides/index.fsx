@@ -130,22 +130,24 @@ let countScoreResult = countScore [10;9;1;5;5;7;2;10;10;10;9;0;8;2;9;1;10];;
 
 ---
 
-* Add `optsToOpt` function *)
+* Add `sequence` function *)
 
-let optsToOpt (opts : List<Option<'a>>) : Option<List<'a>>  =
-    let rec optsToOpt' acc opts =
-        match acc, opts with
-        | x, [] -> x |> Option.map List.rev
-        | Some xs, Some x :: rest ->
-            optsToOpt' (Some (x :: xs)) rest
-        | _ -> None
+let sequence (optionals: list<option<'a>>) : option<list<'a>> =
+    let rec sequence' acc optionals =
+        match optionals, acc with
+        | [],_ -> 
+            Option.map List.rev acc
+        | Some h :: t, Some acc -> 
+            sequence' (Some (h :: acc)) t
+        | _ -> 
+            None
 
-    optsToOpt' (Some []) opts
+    sequence' (Some []) optionals
 
 (**
 * Test the function in interactive:
 *)
-let oneOption = optsToOpt [Some "abc"; Some "def"; Some "ghi"];;
+let oneOption = sequence [Some "abc"; Some "def"; Some "ghi"];;
 (** #### Value of ``oneOption`` *)
 (*** include-value: ``oneOption`` ***) 
 (**
@@ -159,7 +161,7 @@ let bowlingScore (score: string) : Option<int> =
     score.ToCharArray()
     |> Array.toList
     |> parseScore
-    |> optsToOpt
+    |> sequence
     |> Option.map countScore
 
 (**
@@ -219,6 +221,8 @@ let bowlingScoreResult = bowlingScore "X9/5/72XXX9-8/9/X";;
 
 Invoke `Bowling.bowlingScore` for each argument from `argv` (console arguments)
 
+> XXXXXXXXXXXXX 9-9-9-9-9-9-9-9-9-9- 5/5/5/5/5/5/5/5/5/5/5 X9/5/72XXX9-8/9/X
+
 ![array_iter.png](images/array_iter.png)
 
 Hint: Use `Array.iter` function to perform an action for each element from an array
@@ -247,7 +251,7 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 * Create new directory ".paket" next to the ".sln" solution file
 * Download paket.bootstrapper.exe from [here](https://github.com/fsprojects/Paket/releases/download/3.9.5/paket.bootstrapper.exe) and save it in ".paket" directory
-* In console, change directory to where the solution file and ".paket" folder are. **Do not** change directory to ".paket"
+* In console, change directory to where the solution file and ".paket" folder are located. **Do not** change directory to ".paket"
 * Run paket.bootstrapper.exe from console to download newest Paket, and then invoke `paket.exe init`:
 
 
@@ -357,7 +361,7 @@ Run the build script:
 * Open "paket.dependencies" in VS editor,
 * Add "xunit.runner.console" package to "Build" group,
 * Add new group "Tests" with "framework: net451",
-* Add "FSharp.Core" with "redirects: force" option, "xUnit" and "FsUnit.xUnit" nugets to "Tests" group
+* Add "FSharp.Core" 4.0.0.1 with "redirects: force" option, "xUnit" and "FsUnit.xUnit" nugets to "Tests" group
 
 
     [lang=paket]
@@ -371,7 +375,7 @@ Run the build script:
         framework: net451
         source https://www.nuget.org/api/v2
         
-        nuget FSharp.Core redirects: force
+        nuget FSharp.Core 4.0.0.1 redirects: force
         nuget xUnit
         nuget FsUnit.xUnit
 
@@ -511,7 +515,7 @@ Run the build script (without any additional parameters):
 ---
 
 * Add C# Windows "WPF Application" project, "bowling.wpf" to the solution,
-* Add project reference from "bolwing.wpf" to "bowling",
+* Add project reference from "bowling.wpf" to "bowling",
 * Design awesome GUI with a TextBox, TextBlock and a Button:
 
 ![gui.png](images/gui.png)
@@ -519,13 +523,15 @@ Run the build script (without any additional parameters):
 ---
 
 * Open "paket.dependencies" file,
-* Add "FSharp.Core" package with "redirects: force" option to main group:
+* Add "FSharp.Core" 4.0.0.1 package with "redirects: force" option to main group,
+* Use "framework: net451" for main group as well:
 
 
     [lang=paket]
+    framework: net451
     source https://www.nuget.org/api/v2
 
-    nuget FSharp.Core redirects: force
+    nuget FSharp.Core 4.0.0.1 redirects: force
 
     group Build
         source https://www.nuget.org/api/v2
@@ -537,7 +543,7 @@ Run the build script (without any additional parameters):
         framework: net451
         source https://www.nuget.org/api/v2
         
-        nuget FSharp.Core redirects: force
+        nuget FSharp.Core 4.0.0.1 redirects: force
         nuget xUnit
         nuget FsUnit.xUnit
 
@@ -598,7 +604,7 @@ http://fsharp.org/specs/component-design-guidelines/
 
 > ✔ Consider using the TryGetValue pattern instead of returning F# option values (option) in vanilla .NET APIs, and prefer method overloading to taking F# option values as arguments.
 
-This tick can be found [in this section](http://fsharp.org/specs/component-design-guidelines#object-and-member-design--for-libraries-for-use-from-other-net-languages) of above guidelines.
+This tick can be found [in this section](http://fsharp.org/specs/component-design-guidelines/#52-object-and-member-design--for-libraries-for-use-from-other-net-languages) of above guidelines.
 
 ---
 
@@ -666,7 +672,7 @@ https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/
 ---
 
 * Add F# Console application project, "bowling.web" to the solution,
-* Add project reference from "bolwing.web" to "bowling",
+* Add project reference from "bowling.web" to "bowling",
 
 ---
 
@@ -675,9 +681,10 @@ https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/
 
 
     [lang=paket]
+    framework: net451
     source https://www.nuget.org/api/v2
 
-    nuget FSharp.Core redirects: force
+    nuget FSharp.Core 4.0.0.1 redirects: force
     nuget Suave
 
     group Build
@@ -690,7 +697,7 @@ https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/
         framework: net451
         source https://www.nuget.org/api/v2
 
-        nuget FSharp.Core redirects: force
+        nuget FSharp.Core 4.0.0.1 redirects: force
         nuget xUnit
         nuget FsUnit.xUnit
 ---

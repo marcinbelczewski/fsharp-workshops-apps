@@ -13,7 +13,7 @@
 
 * Open up new instance of **Visual Studio Code**
 * Let's do it in .NET Core
-* Make sure you have fairly recent .NET Core version by typing "dotnet --version". You should see something like "2.1.402"
+* Make sure you have fairly recent .NET Core version by typing "dotnet --version". You should see something like "2.1.403"
 
 ---
 
@@ -29,23 +29,22 @@
 
 ## F# Library (bowling score)
 
-* Create new folder for your code and inside create new, **blank** solution called "bowling"
-* Create new F# library called "bowling" in the solution
+* Create new folder for your code and inside create new, **blank** solution called "Bowling"
+* Create new F# library called "Bowling" in the solution
 
 
     [lang=cmd]
-    > mkdir bowling
-    > cd bowling
-    > dotnet new sln --name bowling
-    > dotnet new classlib --language F# --name bowling
-    > dotnet sln add bowling
+    > mkdir Bowling
+    > cd Bowling
+    > dotnet new sln --name Bowling
+    > dotnet new classlib --language F# --name Bowling
+    > dotnet sln add Bowling
     > dotnet build
 
 ---
 
-* Open bowling folder in Visual Studio Code
-* Rename `Library.fs` to `Bowling.fs`. Don't forget *.fsproj*!
-* Open renamed file `Bowling.fs` in editor
+* Open `Bowling` folder in Visual Studio Code
+* Open renamed file `Library.fs` in editor
 * Remove generated code from the file, and insert namespace declaration:
 
 
@@ -197,15 +196,15 @@ let bowlingScoreResult = bowlingScore "X9/5/72XXX9-8/9/X";;
 
 ## F# Console app
 
-* Create new F# Console Application "bowling.console" and add to solution
-* Add **project reference** from "bowling.console" to "bowling"
+* Create new F# Console Application "Bowling.Console" and add to solution
+* Add **project reference** from "Bowling.Console" to "Bowling"
 * Build "bowling" solution
 
 
     [lang=cmd]
-    > dotnet new console --language F# --name bowling.console
-    > dotnet sln add bowling.console
-    > dotnet add bowling.console reference bowling
+    > dotnet new console --language F# --name Bowling.Console
+    > dotnet sln add Bowling.Console
+    > dotnet add Bowling.Console reference Bowling
     > dotnet build
 
 
@@ -262,19 +261,18 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 ## F# Test project - [nUnit](https://nunit.org/)
 
-* Create new F# Library "bowling.tests"
+* Create new F# Library "Bowling.Tests"
 * Tests are like console applications - must target a platform
 
 
     [lang=cmd]
-    > dotnet new classlib --language F# --name bowling.tests --framework netcoreapp2.1
-    > dotnet sln add bowling.tests
-    > dotnet add bowling.tests reference bowling
+    > dotnet new classlib --language F# --name Bowling.Tests --framework netcoreapp2.1
+    > dotnet sln add Bowling.Tests
+    > dotnet add Bowling.Tests reference Bowling
     > dotnet build
 
 
-* Rename "Library.fs" to "Tests.fs", don't forget about *.fsproj
-* Remove boilerplate code and declare top level `Bowling.Tests` module:
+* Open "Library.fs" and remove boilerplate code and declare top level `Bowling.Tests` module:
 
 
     [lang=fs]
@@ -317,11 +315,11 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 
     [lang=cmd]
-    > .paket\paket.exe add NUnit --project bowling.tests --group Tests
-    > .paket\paket.exe add NUnit3TestAdapter --project bowling.tests --group Tests
-    > .paket\paket.exe add Microsoft.NET.Test.Sdk --project bowling.tests --group Tests
-    > .paket\paket.exe add FsUnit --project bowling.tests --group Tests
-    > .paket\paket.exe add Unquote --project bowling.tests --group Tests
+    > .paket\paket.exe add NUnit --project Bowling.Tests --group Tests
+    > .paket\paket.exe add NUnit3TestAdapter --project Bowling.Tests --group Tests
+    > .paket\paket.exe add Microsoft.NET.Test.Sdk --project Bowling.Tests --group Tests
+    > .paket\paket.exe add FsUnit --project Bowling.Tests --group Tests
+    > .paket\paket.exe add Unquote --project Bowling.Tests --group Tests
 
 
 * Look inside global paket.dependencies file and project's local paket.references file
@@ -351,7 +349,7 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 
     [lang=cmd]
-    > dotnet test bowling.tests
+    > dotnet test Bowling.Tests
 
 
 ![test_failure.png](images/test_failure.png)
@@ -397,7 +395,7 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 
     [lang=fs]
-    #r @"bin/Debug/netcoreapp2.1/bowling.dll"
+    #r @"bin/Debug/netcoreapp2.1/Bowling.dll"
     #load @"../.paket/load/netcoreapp2.1/main.group.fsx"
 
     match Bowling.Api.bowlingScore "XXXXXXXXXXXX" with
@@ -411,14 +409,14 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 
     [lang=cmd]
-    > fsi bowling.test\Script.fsx
+    > fsi Bowling.Tests\Script.fsx
 
 
 * Reference file directly for even tighter feedback
 
 
     [lang=fs]
-    #load @"../bowling/Bowling.fs"
+    #load @"../Bowling/Bowling.fs"
 
 ---
 
@@ -452,9 +450,9 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 
     [lang=cmd]
-    > dotnet new console --language C# --name bowling.csharp
-    > dotnet sln add bowling.csharp
-    > dotnet add bowling.csharp reference bowling
+    > dotnet new console --language C# --name Bowling.Csharp
+    > dotnet sln add Bowling.Csharp
+    > dotnet add Bowling.Csharp reference Bowling
     > dotnet build
 
 ---
@@ -463,7 +461,7 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 
     [lang=cmd]
-    > .paket\paket.exe add FSharp.Core --project bowling.csharp
+    > .paket\paket.exe add FSharp.Core --project Bowling.Csharp
 
 
 ---
@@ -588,22 +586,22 @@ https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/
 
 ---
 
-* Create new F# Console Application "bowling.web" and add to solution
-* Add **project reference** from "bowling.web" to "bowling"
+* Create new F# Console Application "Bowling.Web" and add to solution
+* Add **project reference** from "Bowling.Web" to "Bowling"
 * Add `Saturn` framework dependency
 * Build "bowling" solution
 
 
     [lang=cmd]
-    > dotnet new console --language F# --name bowling.web
-    > dotnet sln add bowling.web
-    > dotnet add bowling.web reference bowling
-    > .paket\paket.exe add Saturn --project bowling.web
+    > dotnet new console --language F# --name Bowling.Web
+    > dotnet sln add Bowling.Web
+    > dotnet add Bowling.Web reference Bowling
+    > .paket\paket.exe add Saturn --project Bowling.Web
     > dotnet build
 
 ---
 
-* Open "Program.fs" from "bowling.web",
+* Open "Program.fs" from "Bowling.Web",
 * Remove boilerplater code, and insert following hello world Saturn:
 
 

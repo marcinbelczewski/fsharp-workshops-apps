@@ -11,11 +11,9 @@
 
 ### Writing .NET applications in F#
 
-* Open up new instance of **Visual Studio 2015**
-* Make sure you have F# templates (in `Other Languages`)
-* Let's stick to .NET Framework v4.5.1
-
-![fsharp_templates.png](images/fsharp_templates.png)
+* Open up new instance of **Visual Studio Code**
+* Let's do it in .NET Core
+* Make sure you have fairly recent .NET Core version by typing "dotnet --version". You should see something like "2.1.402"
 
 ---
 
@@ -23,38 +21,40 @@
 
 * F# Library (bowling score)
 * F# Console app
-* F# Build script - [FAKE](http://fsharp.github.io/FAKE/)
-* F# Test project - [xUnit](https://xunit.github.io/)
-* C# Window app - WPF (integration with F#)
-* F# Web app
+* F# Test project - [NUnit](https://nunit.org/)
+* C# Console app - integration with F#
+* F# Web app - Saturn
 
 ***
 
 ## F# Library (bowling score)
 
-* Create new, **blank** solution called "bowling" in directory of your choice 
-
-![blank_sln.png](images/blank_sln.png)
-
+* Create new folder for your code and inside create new, **blank** solution called "bowling"
 * Create new F# library called "bowling" in the solution
 
+
+    [lang=cmd]
+    > mkdir bowling
+    > cd bowling
+    > dotnet new sln --name bowling
+    > dotnet new classlib --language F# --name bowling
+    > dotnet sln add bowling
+    > dotnet build
+
 ---
 
-* Delete `Script.fsx` from the project
-* Rename `Library1.fs` to `Bowling.fs`
+* Open bowling folder in Visual Studio Code
+* Rename `Library.fs` to `Bowling.fs`. Don't forget *.fsproj*!
 * Open renamed file `Bowling.fs` in editor
-* Remove generated code from the file, and insert module declaration:
+* Remove generated code from the file, and insert namespace declaration:
 
 
-    module Bowling
-
-
-#### ! Remember to save all changes when manipulating projects in Visual Studio (Ctrl + Shift + S)
+    namespace Bowling
+    module Api =
 
 ---
 
-* Copy code for `Digit` active pattern recognizer into `Bowling` module *)
-
+* Copy code for `Digit` active pattern recognizer into `Bowling.Api` module indented by 4 whitespaces *)
 let (|Digit|_|) char =
     let zero = System.Convert.ToInt32 '0'
     if System.Char.IsDigit char then
@@ -65,10 +65,8 @@ let (|Digit|_|) char =
 (**
 
 ---
-
- * Copy code for `parseScore` function after `Digit`*)
-
-let rec parseScore (chars: list<char>) : list<Option<int>> =
+* Copy code for `parseScore` function after `Digit`*)
+let rec parseScore (chars: char list) : int option list =
     match chars with
     | [] -> []
     | 'X' :: rest -> Some 10 :: parseScore rest
@@ -80,20 +78,22 @@ let rec parseScore (chars: list<char>) : list<Option<int>> =
 
 (**
 
+#### ! Remember to save all changes when manipulating projects in Visual Studio Code (Ctrl + K + S)
+
 ---
 
 ### Test the code in Interactive
 
-* Select all lines **excluding** module declaration
-* Trigger *Execute in Interactive*
+* Select all lines **excluding** namepspace and module declarations
+* Trigger *Execute in Interactive* by pressing *Alt + Enter*
 * In interactive window, enter following:
 *)
 
 let parseScoreResult = parseScore ['4'; '/'];;
 (** #### Value of ``parseScoreResult`` *)
-(*** include-value: ``parseScoreResult`` ***) 
+(*** include-value: ``parseScoreResult`` ***)
 (**
-    
+
 ---
 
 ### Exercise
@@ -101,15 +101,14 @@ let parseScoreResult = parseScore ['4'; '/'];;
 * Extend `Digit` active pattern to recognize '-' character as well,
 * Rename `Digit` to `Pins` to better reflect its intent after the change,
 * Refactor `parseScore` function - make use of the fact that `Pins` recognizes now '-' and remove redundant pattern matching case(s),
-* In interactive, make sure that after refactoring the code still works.  
+* In interactive, make sure that after refactoring the code still works.
 
 ---
-
 * Add `countScore` function *)
 
-let countScore (scores: list<int>) : int =
+let countScore (scores: int list) : int =
     let rec count frame scores =
-        match scores with 
+        match scores with
         | [] -> 0
         | 10 :: (b1 :: b2 :: _ as next) ->
             10 + b1 + b2 + (if frame = 10 then 0 else count (frame+1) next)
@@ -117,6 +116,7 @@ let countScore (scores: list<int>) : int =
             10 + b1 +      (if frame = 10 then 0 else count (frame+1) next)
         | r1 :: r2 :: next ->
             r1 + r2 + count (frame+1) next
+        | _ -> failwith "invalid score"
 
     count 1 scores
 
@@ -125,21 +125,19 @@ let countScore (scores: list<int>) : int =
 *)
 let countScoreResult = countScore [10;9;1;5;5;7;2;10;10;10;9;0;8;2;9;1;10];;
 (** #### Value of ``countScoreResult`` *)
-(*** include-value: ``countScoreResult`` ***) 
+(*** include-value: ``countScoreResult`` ***)
 (**
 
 ---
-
 * Add `sequence` function *)
-
-let sequence (optionals: list<option<'a>>) : option<list<'a>> =
+let sequence (optionals: 'a option list) : 'a list option =
     let rec sequence' acc optionals =
         match optionals, acc with
-        | [],_ -> 
+        | [],_ ->
             Option.map List.rev acc
-        | Some h :: t, Some acc -> 
+        | Some h :: t, Some acc ->
             sequence' (Some (h :: acc)) t
-        | _ -> 
+        | _ ->
             None
 
     sequence' (Some []) optionals
@@ -149,7 +147,7 @@ let sequence (optionals: list<option<'a>>) : option<list<'a>> =
 *)
 let oneOption = sequence [Some "abc"; Some "def"; Some "ghi"];;
 (** #### Value of ``oneOption`` *)
-(*** include-value: ``oneOption`` ***) 
+(*** include-value: ``oneOption`` ***)
 (**
 
 
@@ -157,7 +155,7 @@ let oneOption = sequence [Some "abc"; Some "def"; Some "ghi"];;
 
 * Add `bowlingScore` function *)
 
-let bowlingScore (score: string) : Option<int> =
+let bowlingScore (score: string) : int option =
     score.ToCharArray()
     |> Array.toList
     |> parseScore
@@ -169,43 +167,59 @@ let bowlingScore (score: string) : Option<int> =
 *)
 let bowlingScoreResult = bowlingScore "X9/5/72XXX9-8/9/X";;
 (** #### Value of ``bowlingScoreResult`` *)
-(*** include-value: ``bowlingScoreResult`` ***) 
+(*** include-value: ``bowlingScoreResult`` ***)
 (**
+
+---
+
+### Save & build
+
+    [lang=cmd]
+    > dotnet build
 
 ---
 
 ### Summary
 
-* Creating F# Library projects in VS
-* Declaring Bowling module
+* Creating F# Library projects in VSC
+* Declaring Bowling namespace and module
 * Testing code in interactive
 
 ---
 
-### Links 
+### Links
 
 * [Installing and using F#](https://fsharpforfunandprofit.com/installing-and-using/) by Scott Wlaschin
+* [F# coding conventions](https://docs.microsoft.com/pl-pl/dotnet/fsharp/style-guide/conventions)
 * [Organizing functions - Nested functions and modules](https://fsharpforfunandprofit.com/posts/organizing-functions/) by Scott Wlaschin
 
 ***
 
 ## F# Console app
 
-* Create new F# Console Application "bowling.console"
+* Create new F# Console Application "bowling.console" and add to solution
 * Add **project reference** from "bowling.console" to "bowling"
-* Compile "bowling" project
+* Build "bowling" solution
+
+
+    [lang=cmd]
+    > dotnet new console --language F# --name bowling.console
+    > dotnet sln add bowling.console
+    > dotnet add bowling.console reference bowling
+    > dotnet build
+
 
 ---
 
-* Invoke `Bowling.bowlingScore` on example input and print output
+* Invoke `Bowling.Api.bowlingScore` on example input and print output
 
 
     // Learn more about F# at http://fsharp.org
     // See the 'F# Tutorial' project for more help.
 
     [<EntryPoint>]
-    let main argv = 
-        printfn "%A" (Bowling.bowlingScore "XXXXXXXXXXXX")
+    let main argv =
+        printfn "%A" (Bowling.Api.bowlingScore "XXXXXXXXXXXX")
         0 // return an integer exit code
 
 
@@ -217,11 +231,11 @@ let bowlingScoreResult = bowlingScore "X9/5/72XXX9-8/9/X";;
 
 ---
 
-### Exercise 
+### Exercise
 
-Invoke `Bowling.bowlingScore` for each argument from `argv` (console arguments)
+Invoke `Bowling.Api.bowlingScore` for each argument from `argv` (console arguments)
 
-> XXXXXXXXXXXXX 9-9-9-9-9-9-9-9-9-9- 5/5/5/5/5/5/5/5/5/5/5 X9/5/72XXX9-8/9/X
+    XXXXXXXXXXXXX 9-9-9-9-9-9-9-9-9-9- 5/5/5/5/5/5/5/5/5/5/5 X9/5/72XXX9-8/9/X
 
 ![array_iter.png](images/array_iter.png)
 
@@ -243,218 +257,74 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 ***
 
-## F# Build script - [FAKE](http://fsharp.github.io/FAKE/)
+
+---
+
+## F# Test project - [nUnit](https://nunit.org/)
+
+* Create new F# Library "bowling.tests"
+* Tests are like console applications - must target a platform
+
+
+    [lang=cmd]
+    > dotnet new classlib --language F# --name bowling.tests --framework netcoreapp2.1
+    > dotnet sln add bowling.tests
+    > dotnet add bowling.tests reference bowling
+    > dotnet build
+
+
+* Rename "Library.fs" to "Tests.fs", don't forget about *.fsproj
+* Remove boilerplate code and declare top level `Bowling.Tests` module:
+
+
+    [lang=fs]
+    module Bowling.Tests
+
+#### ! Save all changes in Visual Studio Code
+
+---
 
 ### [Paket](http://fsprojects.github.io/Paket/) for managing dependencies
 
----
-
 * Create new directory ".paket" next to the ".sln" solution file
-* Download paket.bootstrapper.exe from [here](https://github.com/fsprojects/Paket/releases/download/3.9.5/paket.bootstrapper.exe) and save it in ".paket" directory
-* In console, change directory to where the solution file and ".paket" folder are located. **Do not** change directory to ".paket"
-* Run paket.bootstrapper.exe from console to download newest Paket, and then invoke `paket.exe init`:
+* Download paket.bootstrapper.exe from [here](https://github.com/fsprojects/Paket/releases/download/5.181.1/paket.bootstrapper.exe) and save it in ".paket" directory
+* Rename .paket\paket.bootstrapper.exe to .paket\paket.exe
+* In console, change directory to .\bowling main directory where bowling.sln is"
+* Run `paket.exe init`:
 
 
     [lang=cmd]
-    > .paket\paket.bootrapper.exe
+    > mkdir .paket
+    > cd .paket
+    > wget https://github.com/fsprojects/Paket/releases/download/5.181.1/paket.bootstrapper.exe
+    > mv paket.bootstrapper.exe paket.exe
+    > cd ..
     > .paket\paket.exe init
 
-
 ---
 
-* In solution, add "New Solution Folder" called ".project"
-* "Add Existing Item" - add "paket.dependencies" file to the ".project" solution folder
-* Open "paket.dependencies" file in the VS editor
-
----
-
-Modify the "paket.dependencies" file to add "Build" group and "FAKE" package:
+* Open "paket.dependencies" in VSC editor,
+* add option `storage: none` to mirror NuGet behavior and disable the packages folder and use the global NuGet cache
 
 
     [lang=paket]
-    group Build
-        source https://www.nuget.org/api/v2
-
-        nuget FAKE
+    source https://www.nuget.org/api/v2
+    storage: none
 
 ---
 
-Run paket install:
+* Add NUnit, Microsoft.NET.Test.Sdk, Unquote references and place dependency in separate paket group `Tests`
 
 
     [lang=cmd]
-    > .paket\paket.exe install
-
----
-
-Add "New Item", "build.cmd" to the ".project" solution folder:
-
-
-    [lang=cmd]
-    @echo off
-    cls
-    .paket\paket.bootstrapper.exe
-    .paket\paket.exe restore
-    packages\Build\FAKE\tools\FAKE.exe build.fsx %*
-
---- 
-
-Add "New Item", "build.fsx" to the ".project" solution folder:
+    > .paket\paket.exe add NUnit --project bowling.tests --group Tests
+    > .paket\paket.exe add NUnit3TestAdapter --project bowling.tests --group Tests
+    > .paket\paket.exe add Microsoft.NET.Test.Sdk --project bowling.tests --group Tests
+    > .paket\paket.exe add FsUnit --project bowling.tests --group Tests
+    > .paket\paket.exe add Unquote --project bowling.tests --group Tests
 
 
-    #r @"packages/Build/FAKE/tools/FakeLib.dll"
-
-    open Fake
-
-    Target "Build" (fun _ ->
-        MSBuildRelease "bin" "Build" ["bowling.sln"]
-        |> Log "Build output"
-    )
-
-    RunTargetOrDefault "Build"
-
----
-
-Run the build script:
-
-    
-    build.cmd
-
-![build_hello_fake.png](images/build_hello_fake.png)
-
----
-
-### Summary
-
-* Paket for managing dependencies
-* FAKE for build scripts
-* Invoking build script from command line
-
----
-
-### Links
-
-* [FAKE](http://fsharp.github.io/FAKE/)
-* [Paket](http://fsprojects.github.io/Paket/)
-* [ProjectScaffold](https://fsprojects.github.io/ProjectScaffold/)
-
-***
-
-## F# Test project - [xUnit](https://xunit.github.io/)
-
----
-
-* Create new F# Library "bowling.tests" for .NET **4.5.1**,
-* Remove "Script.fsx" file,
-* Rename "Library1.fs" to "Tests.fs",
-* "Add new item", "App.config" application configuration file to "bowling.tests",
-* Add Project Reference from "bowling.tests" to "bowling",
-* Remove boilerplate code and declare `Bowling.Tests` module:
-
-
-    module Bowling.Tests
-
-#### ! Save all changes in Visual Studio
-
----
-
-* Open "paket.dependencies" in VS editor,
-* Add "xunit.runner.console" package to "Build" group,
-* Add new group "Tests" with "framework: net451",
-* Add "FSharp.Core" 4.0.0.1 with "redirects: force" option, "xUnit" and "FsUnit.xUnit" nugets to "Tests" group
-
-
-    [lang=paket]
-    group Build
-        source https://www.nuget.org/api/v2
-
-        nuget FAKE
-        nuget xunit.runner.console
-
-    group Tests
-        framework: net451
-        source https://www.nuget.org/api/v2
-        
-        nuget FSharp.Core 4.0.0.1 redirects: force
-        nuget xUnit
-        nuget FsUnit.xUnit
-
----
-
-* Add "New Item", "paket.references" (General -> Text File) to "bowling.tests" project
-* Open "paket.references" file in VS editor and fill it with below:
-
-
-    [lang=paket]
-    group Tests
-        FSharp.Core
-        xUnit
-        FsUnit.xUnit
-
----
-
-Run "paket install":
-
-
-    [lang=cmd]
-    > .paket\paket.exe install
-
----
-
-* Open "build.fsx" build script in VS editor,
-* Add "Tests" build target:
-
-
-    [lang=fsharp]
-    open Fake.Testing // for testing helper functions
-
-    Target "Tests" (fun _ ->
-        ["bin/bowling.tests.dll"]
-        |> xUnit2 (fun xunitParams -> 
-            { xunitParams with ToolPath = @"packages/Build/xunit.runner.console/" 
-                                        + @"tools/xunit.console.exe" }
-        )
-    )
-
-
----
-
-At the bottom of "build.fsx", specify Target dependency and change default target to "Tests":
-
-
-    [lang=fsharp]
-    // Targets above    
-    
-    "Build"
-        ==> "Tests"
-
-    RunTargetOrDefault "Tests"
-
----
-
-    [lang=fsharp]
-    #r @"packages/Build/FAKE/tools/FakeLib.dll"
-
-    open Fake
-    open Fake.Testing
-
-    Target "Build" (fun _ ->
-        MSBuildRelease "bin" "Build" ["bowling.sln"]
-        |> Log "Build output"
-    )
-
-    Target "Tests" (fun _ ->
-        ["bin/bowling.tests.dll"]
-        |> xUnit2 (fun xunitParams -> 
-            { xunitParams with ToolPath = @"packages/Build/xunit.runner.console/" 
-                                        + @"tools/xunit.console.exe" }
-        )
-    )
-
-    "Build"
-        ==> "Tests"
-
-    RunTargetOrDefault "Tests"
+* Look inside global paket.dependencies file and project's local paket.references file
 
 ---
 
@@ -465,44 +335,106 @@ At the bottom of "build.fsx", specify Target dependency and change default targe
     [lang=fs]
     module Bowling.Tests
 
-    open Xunit
-    open FsUnit.Xunit
-        
-    [<Fact>]
-    let ``12 strikes in row`` () =
+    open NUnit.Framework
+    open FsUnit
+
+    [<Test>]
+    let ``12 strikes in row``() =
         let expected = Some 270
-        let actual = Bowling.bowlingScore "XXXXXXXXXXXX"
+        let actual = Bowling.Api.bowlingScore "XXXXXXXXXXXX"
         actual |> should equal expected
+
 
 ---
 
-Run the build script (without any additional parameters):
+* Run the tests:
+
+
+    [lang=cmd]
+    > dotnet test bowling.tests
+
 
 ![test_failure.png](images/test_failure.png)
+
+
+* Fix the test and run it again
+
+---
+
+* Rewrite the failing test using `Unquote` library and `quoted expressions`
+
+
+    [lang=fs]
+    open Swensen.Unquote
+    [<Test>]
+    let ``12 strikes in row``() =
+        test<@ Bowling.Api.bowlingScore "XXXXXXXXXXXX" = Some 270 @>
+
+
+* Fix the test and run it again
 
 ---
 
 ### Exercises
 
-* Fix the test
-* Add three more test cases for following scores:
+* Add three more test cases for following scores using either Unquote or standard assertions:
     * "9-9-9-9-9-9-9-9-9-9-"
     * "5/5/5/5/5/5/5/5/5/5/5"
     * "X9/5/72XXX9-8/9/X"
 
---- 
+---
+
+### Demo. REPL driven testing
+
+* Build solution so that there is bowling.dll
+* Use paket to generate load scripts - very helpful!
+
+
+    [lang=cmd]
+    > .paket\paket.exe  generate-load-scripts --framework netcoreapp2.1
+
+* Create Script.fsx in bowling.test
+
+
+    [lang=fs]
+    #r @"bin/Debug/netcoreapp2.1/bowling.dll"
+    #load @"../.paket/load/netcoreapp2.1/main.group.fsx"
+
+    match Bowling.Api.bowlingScore "XXXXXXXXXXXX" with
+    | Some score -> printfn "Score is %d" score
+    | None -> printfn "Wrong score"
+
+
+---
+
+* Run in VSC (highlight + Alt + Enter ) and in command line
+
+
+    [lang=cmd]
+    > fsi bowling.test\Script.fsx
+
+
+* Reference file directly for even tighter feedback
+
+
+    [lang=fs]
+    #load @"../bowling/Bowling.fs"
+
+---
 
 ### Summary
 
 * Creating test library in F#
 * Adding test nuget packages with Paket
-* Attaching tests to the build script pipeline
 * Writing unit tests in F#
+* REPL driven testing
 
 ---
 
 ### Links
 
+* [Paket](http://fsprojects.github.io/Paket/)
+* [Paket and .NET Core](https://fsprojects.github.io/Paket/paket-and-dotnet-cli.html)
 * [FsUnit project](https://fsprojects.github.io/FsUnit/)
 * [Using F# for testing](https://fsharpforfunandprofit.com/posts/low-risk-ways-to-use-fsharp-at-work-3/) by Scott Wlaschin
 * [An introduction to property-based testing](https://fsharpforfunandprofit.com/posts/property-based-testing/) by Scott Wlaschin
@@ -510,79 +442,62 @@ Run the build script (without any additional parameters):
 
 ***
 
-## C# Window app - WPF (integration with F#)
+## C# code integration with F#
 
 ---
 
-* Add C# Windows "WPF Application" project, "bowling.wpf" to the solution,
-* Add project reference from "bowling.wpf" to "bowling",
-* Design awesome GUI with a TextBox, TextBlock and a Button:
-
-![gui.png](images/gui.png)
-
----
-
-* Open "paket.dependencies" file,
-* Add "FSharp.Core" 4.0.0.1 package with "redirects: force" option to main group,
-* Use "framework: net451" for main group as well:
-
-
-    [lang=paket]
-    framework: net451
-    source https://www.nuget.org/api/v2
-
-    nuget FSharp.Core 4.0.0.1 redirects: force
-
-    group Build
-        source https://www.nuget.org/api/v2
-
-        nuget FAKE
-        nuget xunit.runner.console
-
-    group Tests
-        framework: net451
-        source https://www.nuget.org/api/v2
-        
-        nuget FSharp.Core 4.0.0.1 redirects: force
-        nuget xUnit
-        nuget FsUnit.xUnit
-
----
-
-Add "New Item", "paket.references" to "bowling.wpf":
-
-    [lang=paket]
-    FSharp.Core
-
----
-
-Run paket install:
+* Create new C# Console Application "bowling.csharp" and add to solution
+* Add **project reference** from "bowling.csharp" to "bowling"
+* Build "bowling" solution
 
 
     [lang=cmd]
-    > .paket\paket.exe install
+    > dotnet new console --language C# --name bowling.csharp
+    > dotnet sln add bowling.csharp
+    > dotnet add bowling.csharp reference bowling
+    > dotnet build
 
 ---
 
-Add action on button click:
+* To integrate with F# Option type reference FSharp.Core from C#
+
+
+    [lang=cmd]
+    > .paket\paket.exe add FSharp.Core --project bowling.csharp
+
+
+---
+
+* Replace Program.cs content in `bowling.csharp` with the following:
 
 
     [lang=csharp]
-    private void button_Click(object sender, RoutedEventArgs e)
+    using System;
+    using Microsoft.FSharp.Core;
+
+    namespace Bowling.CSharp
     {
-        var input = textBox.Text;
-        var score = Bowling.bowlingScore(input);
-        textBlock.Text = 
-            FSharpOption<int>.get_IsSome(score) ? 
-            "Score: " + score.Value.ToString() : 
-            "Wrong score!";
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                foreach(var input in args) {
+                    var score = Bowling.Api.bowlingScore(input);
+                    var scoreStr =
+                        FSharpOption<int>.get_IsSome(score) ?
+                        "Score: " + score.Value :
+                        "Wrong score!";
+                    Console.WriteLine(scoreStr);
+                }
+            }
+        }
     }
 
 ---
 
-Run it!
+Build and Run it!
 
-![wpf_runit.png](images/wpf_runit.png)
+![csharp_runit.png](images/csharp_runit.png)
 
 ---
 
@@ -591,25 +506,25 @@ Run it!
 #### Below snippet doesn't feel nice in C#:
 
     [lang=csharp]
-    textBlock.Text = 
-        FSharpOption<int>.get_IsSome(score) ? 
-        "Score: " + score.Value.ToString() : 
+    var scoreStr =
+        FSharpOption<int>.get_IsSome(score) ?
+        "Score: " + score.Value :
         "Wrong score!";
 
 ---
 
 ### The F# Component Design Guidelines
 
-http://fsharp.org/specs/component-design-guidelines/
+https://docs.microsoft.com/pl-pl/dotnet/fsharp/style-guide/component-design-guidelines
 
-> ✔ Consider using the TryGetValue pattern instead of returning F# option values (option) in vanilla .NET APIs, and prefer method overloading to taking F# option values as arguments.
+> Use the TryGetValue pattern instead of returning F# option values, and prefer method overloading to taking F# option values as arguments.
 
-This tick can be found [in this section](http://fsharp.org/specs/component-design-guidelines/#52-object-and-member-design--for-libraries-for-use-from-other-net-languages) of above guidelines.
+This tick can be found [in this section](https://docs.microsoft.com/pl-pl/dotnet/fsharp/style-guide/component-design-guidelines#use-the-trygetvalue-pattern-instead-of-returning-f-option-values-and-prefer-method-overloading-to-taking-f-option-values-as-arguments) of above guidelines.
 
 ---
 
 
-### Exercise 
+### Exercise
 
 Create new function `TryGetBowlingScore` in `Bowling` module for better interop with C#, conforming to the F# Component Design Guidelines.
 Use the new function in code behind button click in C#.
@@ -618,13 +533,15 @@ Use the new function in code behind button click in C#.
 
 
     [lang=fsharp]
-    let TryGetBowlingScore(score: string, result : byref<int>) : bool = 
+    open System.Runtime.InteropServices
+
+    let TryGetBowlingScore(score: string, [<Out>] result : byref<int>) : bool =
         result <- 0
         false
 
 #### New stuff - assign value operator
 
-    
+
     [lang=fsharp]
     let mutable x = 0
     x <- 5
@@ -643,15 +560,15 @@ Use the new function in code behind button click in C#.
     let (e1success,e1) = dict.TryGetValue("a")
     let (e2success,e2) = dict.TryGetValue("b")
 
-    let makeResource name = 
-        { new System.IDisposable 
+    let makeResource name =
+        { new System.IDisposable
             with member this.Dispose() = printfn "%s disposed" name }
 
 https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/
 
 ---
 
-### Summary 
+### Summary
 
 * Referencing F# code from C# (FSharp.Core package)
 * Conforming to the F# Component Design Guidelines
@@ -661,7 +578,7 @@ https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/
 
 ### Links
 
-* [The F# Component Design Guidelines](http://fsharp.org/specs/component-design-guidelines/)
+* [The F# Component Design Guidelines](https://docs.microsoft.com/pl-pl/dotnet/fsharp/style-guide/component-design-guidelines/)
 * [Seamless interoperation with .NET libraries](https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/) by Scott Wlaschin
 
 
@@ -671,109 +588,85 @@ https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/
 
 ---
 
-* Add F# Console application project, "bowling.web" to the solution,
-* Add project reference from "bowling.web" to "bowling",
-
----
-
-* Open "paket.dependencies" file,
-* Add "Suave" package to main group:
-
-
-    [lang=paket]
-    framework: net451
-    source https://www.nuget.org/api/v2
-
-    nuget FSharp.Core 4.0.0.1 redirects: force
-    nuget Suave
-
-    group Build
-        source https://www.nuget.org/api/v2
-
-        nuget FAKE
-        nuget xunit.runner.console
-
-    group Tests
-        framework: net451
-        source https://www.nuget.org/api/v2
-
-        nuget FSharp.Core 4.0.0.1 redirects: force
-        nuget xUnit
-        nuget FsUnit.xUnit
----
-
-Add "New Item", "paket.references" to "bowling.web":
-
-    [lang=paket]
-    Suave
-
----
-
-Run paket install:
+* Create new F# Console Application "bowling.web" and add to solution
+* Add **project reference** from "bowling.web" to "bowling"
+* Add `Saturn` framework dependency
+* Build "bowling" solution
 
 
     [lang=cmd]
-    > .paket\paket.exe install
+    > dotnet new console --language F# --name bowling.web
+    > dotnet sln add bowling.web
+    > dotnet add bowling.web reference bowling
+    > .paket\paket.exe add Saturn --project bowling.web
+    > dotnet build
 
 ---
 
 * Open "Program.fs" from "bowling.web",
-* Remove boilerplater code, and insert following hello world suave:
+* Remove boilerplater code, and insert following hello world Saturn:
 
 
     [lang=fsharp]
-    open Suave
+    module Bowling.Web
 
-    startWebServer defaultConfig (Successful.OK "Hello world")
+    open Saturn
+    open Giraffe
+
+    let helloWorldName str = text ("hello world, " + str)
+
+    let topRouter = router {
+        not_found_handler (setStatusCode 404 >=> text "404")
+        getf "/name/%s" helloWorldName
+    }
+
+    let app = application {
+        use_router topRouter
+        url "http://localhost:8085/"
+    }
+
+    [<EntryPoint>]
+    let main _ =
+        run app
+        0
 
 ---
 
 Run it!
 
-![hello_world_suave.png](images/hello_world_suave.png)
+![hello_world_saturn.png](images/hello_world_saturn.png)
 
 ---
 
 ###Exercise
 
-Implement `scoreHandler` function so that:
+Implement `scoreHandler` function similar to `helloWorldName` so that:
 
 * it responds with 200 OK with score for correct input,
-* it responds with 400 BAD REQUEST with "Wrong result" message for wrong input:
+* it responds with 400 BAD REQUEST with "Wrong result" message for wrong input
 
 
-
-    [lang=fsharp]
-    open Suave
-
-    let scoreHandler (input: string) : WebPart =
-        Successful.OK "Hello world"
-
-    startWebServer defaultConfig (Filters.pathScan "/%s" scoreHandler)
-
-Hint: Make use of `Successful.OK` and `RequestErrors.BAD_REQUEST` functions. Both are of type `string -> WebPart`.
+Hint: Make use of `Successful.OK` and `RequestErrors.BAD_REQUEST` functions. Both take generic input.
 
 ---
 
-## Demo: .fs files order in project
+## Demo: .fs files order in project ??? should we do it?
 ### (order matters)
 
 At first it looks like a limitation but it really turns out to be one of the most **beloved** F# features
 
 ---
 
-### Summary 
+### Summary
 
-* Suave.IO is a very light-weight server library, easy to use with F#
+* Saturn is a web framework, easy to use with F#. Sits on top of ASP.NET Core, Kestrel and Giraffe
 * .fs file order inside project matters
 
 ---
 
 ### Links
 
-* [Suave](https://suave.io/)
-* [Suave Music Store Gitbook](https://theimowski.gitbooks.io/suave-music-store) by Tomasz Heimowski
-* [Suave as a service with Topshelf](http://blog.2mas.xyz/suave-as-a-service-with-topshelf/) by Tomas Jansson
+* [Saturn](https://saturnframework.org/)
 * [Cyclic dependencies are evil](https://fsharpforfunandprofit.com/posts/cyclic-dependencies) by Scott Wlaschin
 
 ***
@@ -782,9 +675,8 @@ At first it looks like a limitation but it really turns out to be one of the mos
 
 * F# Library (bowling score)
 * F# Console app
-* F# Build script - [FAKE](http://fsharp.github.io/FAKE/)
-* F# Test project - [xUnit](https://xunit.github.io/)
-* C# Window app - WPF (integration with F#)
-* F# Web app
+* F# Test project - [NUnit](https://nunit.org/)
+* C# Console app - integration with F#
+* F# Web app - Saturn
 
 *)

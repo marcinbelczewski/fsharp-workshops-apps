@@ -44,8 +44,7 @@
 ---
 
 * Open `Bowling` folder in Visual Studio Code
-* Rename `Library.fs` to `Bowling.fs`. Don't forget to rename in *.fsproj!
-* Open renamed file `Bowling.fs` in editor
+* Open renamed file `Library.fs` in editor
 * Remove generated code from the file, and insert namespace declaration:
 
 
@@ -418,7 +417,7 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 
     [lang=fs]
-    #load @"../Bowling/Bowling.fs"
+    #load @"../Bowling/Library.fs"
 
 ---
 

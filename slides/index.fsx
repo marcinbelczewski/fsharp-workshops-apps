@@ -29,8 +29,8 @@
 
 ## F# Library (bowling score)
 
-* Create new folder for your code and inside create new, **blank** solution called "Bowling"
-* Create new F# library called "Bowling" in the solution
+* Create new folder for your code and inside create new, **blank** solution called `Bowling`
+* Create new F# library called `Bowling` in the solution
 
 
     [lang=cmd]
@@ -197,8 +197,8 @@ let bowlingScoreResult = bowlingScore "X9/5/72XXX9-8/9/X";;
 
 ## F# Console app
 
-* Create new F# Console Application "Bowling.Console" and add to solution
-* Add **project reference** from "Bowling.Console" to "Bowling"
+* Create new F# Console Application `Bowling.Console` and add to solution
+* Add **project reference** from `Bowling.Console` to `Bowling`
 * Build "bowling" solution
 
 
@@ -262,7 +262,7 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 ## F# Test project - [nUnit](https://nunit.org/)
 
-* Create new F# Library "Bowling.Tests"
+* Create new F# Library `Bowling.Tests`
 * Tests are like console applications - must target a platform
 
 
@@ -286,10 +286,10 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 ### [Paket](http://fsprojects.github.io/Paket/) for managing dependencies
 
-* Create new directory ".paket" next to the ".sln" solution file
-* Download paket.bootstrapper.exe from [here](https://github.com/fsprojects/Paket/releases/download/5.181.1/paket.bootstrapper.exe) and save it in ".paket" directory
-* Rename .paket\paket.bootstrapper.exe to .paket\paket.exe
-* In console, change directory to .\bowling main directory where bowling.sln is"
+* Create new directory *.paket* next to the *.sln* solution file
+* Download *paket.bootstrapper.exe* from [here](https://github.com/fsprojects/Paket/releases/download/5.181.1/paket.bootstrapper.exe) and save it in ".paket" directory
+* Rename *.paket\paket.bootstrapper.exe* to *.paket\paket.exe*
+* In console, change directory to *.\Bowling* main directory where *Bowling.sln* is
 * Run `paket.exe init`:
 
 
@@ -303,7 +303,7 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 ---
 
-* Open "paket.dependencies" in VSC editor,
+* Open *paket.dependencies* in VSC editor,
 * add option `storage: none` to mirror NuGet behavior and disable the packages folder and use the global NuGet cache
 
 
@@ -328,7 +328,7 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 ---
 
-* Open "Tests.fs" source file in editor,
+* Open `Tests.fs` source file in editor,
 * Add unit test for checking score of 12 Strikes:
 
 
@@ -386,14 +386,14 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 ### Demo. REPL driven testing
 
-* Build solution so that there is bowling.dll
+* Build solution so that there is *Bowling.dll*
 * Use paket to generate load scripts - very helpful!
 
 
     [lang=cmd]
     > .paket\paket.exe  generate-load-scripts --framework netcoreapp2.1
 
-* Create Script.fsx in bowling.test
+* Create `Script.fsx` in bowling.test
 
 
     [lang=fs]
@@ -446,8 +446,8 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 ---
 
-* Create new C# Console Application "bowling.csharp" and add to solution
-* Add **project reference** from "bowling.csharp" to "bowling"
+* Create new C# Console Application `Bowling.Csharp` and add to solution
+* Add **project reference** from `Bowling.Csharp` to `Bowling`
 * Build "bowling" solution
 
 
@@ -468,7 +468,7 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
 ---
 
-* Replace Program.cs content in `bowling.csharp` with the following:
+* Replace Program.cs content in `Bowling.Csharp` with the following:
 
 
     [lang=csharp]
@@ -588,8 +588,8 @@ https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/
 
 ---
 
-* Create new F# Console Application "Bowling.Web" and add to solution
-* Add **project reference** from "Bowling.Web" to "Bowling"
+* Create new F# Console Application `Bowling.Web` and add to solution
+* Add **project reference** from `Bowling.Web` to `Bowling`
 * Add `Saturn` framework dependency
 * Build "bowling" solution
 
@@ -603,7 +603,7 @@ https://fsharpforfunandprofit.com/posts/completeness-seamless-dotnet-interop/
 
 ---
 
-* Open "Program.fs" from "Bowling.Web",
+* Open `Program.fs` from `Bowling.Web`,
 * Remove boilerplater code, and insert following hello world Saturn:
 
 

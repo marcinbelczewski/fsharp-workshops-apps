@@ -397,7 +397,7 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
 
     [lang=fs]
     #r @"bin/Debug/netcoreapp2.1/Bowling.dll"
-    #load @"../.paket/load/netcoreapp2.1/main.group.fsx"
+    #load @"../.paket/load/netcoreapp2.1/Tests/tests.group.fsx"
 
     match Bowling.Api.bowlingScore "XXXXXXXXXXXX" with
     | Some score -> printfn "Score is %d" score

@@ -66,15 +66,7 @@ let (|Digit|_|) char =
 ---
 * Copy code for `parseScore` function after `Digit`*)
 let rec parseScore (chars: char list) : int option list =
-    match chars with
-    | [] -> []
-    | 'X' :: rest -> Some 10 :: parseScore rest
-    | Digit x :: '/' :: rest -> Some x :: Some (10 - x) :: parseScore rest
-    | Digit x :: rest -> Some x :: parseScore rest
-    | '-' :: '/' :: rest -> Some 0 :: Some 10 :: parseScore rest
-    | '-' :: rest -> Some 0 :: parseScore rest
-    | _ :: rest -> None :: parseScore rest
-
+    []
 (**
 
 #### ! Remember to save all changes when manipulating projects in Visual Studio Code (Ctrl + K + S)
@@ -106,19 +98,8 @@ let parseScoreResult = parseScore ['4'; '/'];;
 * Add `countScore` function *)
 
 let countScore (scores: int list) : int =
-    let rec count frame scores =
-        match scores with
-        | [] -> 0
-        | 10 :: (b1 :: b2 :: _ as next) ->
-            10 + b1 + b2 + (if frame = 10 then 0 else count (frame+1) next)
-        | r1 :: r2 :: (b1 :: _ as next) when r1 + r2 = 10 ->
-            10 + b1 +      (if frame = 10 then 0 else count (frame+1) next)
-        | r1 :: r2 :: next ->
-            r1 + r2 + count (frame+1) next
-        | _ -> failwith "invalid score"
-
-    count 1 scores
-
+    []
+    
 (**
 * Test the function in interactive:
 *)

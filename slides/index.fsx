@@ -44,7 +44,8 @@
 ---
 
 * Open `Bowling` folder in Visual Studio Code
-* Open renamed file `Library.fs` in editor
+* Rename `Library.fs` to `Bowling.fs`. Don't forget to rename in *.fsproj!
+* Open renamed file `Bowling.fs` in editor
 * Remove generated code from the file, and insert namespace declaration:
 
 
@@ -272,7 +273,8 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
     > dotnet build
 
 
-* Open "Library.fs" and remove boilerplate code and declare top level `Bowling.Tests` module:
+* Rename `Library.fs` to `Tests.fs`. Don't forget *.fsproj!
+* Open `Tests.fs` and remove boilerplate code and declare top level `Bowling.Tests` module:
 
 
     [lang=fs]
@@ -648,8 +650,7 @@ Hint: Make use of `Successful.OK` and `RequestErrors.BAD_REQUEST` functions. Bot
 
 ---
 
-## Demo: .fs files order in project ??? should we do it?
-### (order matters)
+## Remember: .fs files order in project matter!
 
 At first it looks like a limitation but it really turns out to be one of the most **beloved** F# features
 

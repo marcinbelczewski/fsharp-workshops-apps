@@ -128,23 +128,23 @@ let countScoreResult = countScore [10;9;1;5;5;7;2;10;10;10;9;0;8;2;9;1;10];;
 (**
 
 ---
-* Add `sequence` function *)
-let sequence (optionals: 'a option list) : 'a list option =
-    let rec sequence' acc optionals =
+* Add `sequenceOpts` function *)
+let sequenceOpts (optionals: 'a option list) : 'a list option =
+    let rec sequenceOpts' acc optionals =
         match optionals, acc with
         | [],_ ->
             Option.map List.rev acc
         | Some h :: t, Some acc ->
-            sequence' (Some (h :: acc)) t
+            sequenceOpts' (Some (h :: acc)) t
         | _ ->
             None
 
-    sequence' (Some []) optionals
+    sequenceOpts' (Some []) optionals
 
 (**
 * Test the function in interactive:
 *)
-let oneOption = sequence [Some "abc"; Some "def"; Some "ghi"];;
+let oneOption = sequenceOpts [Some "abc"; Some "def"; Some "ghi"];;
 (** #### Value of ``oneOption`` *)
 (*** include-value: ``oneOption`` ***)
 (**
@@ -158,7 +158,7 @@ let bowlingScore (score: string) : int option =
     score.ToCharArray()
     |> Array.toList
     |> parseScore
-    |> sequence
+    |> sequenceOpts
     |> Option.map countScore
 
 (**

@@ -27,6 +27,21 @@
 
 ***
 
+---
+
+## Ionide recent problem
+Race condition when adding new projects to solution and creating references between them.
+Workaround - run from `Bowling` folder
+
+```
+ Get-ChildItem -path . -recurse -Filter obj | Remove-Item -force -recurse
+```
+
+If `access denied` keep trying.
+And **Reload Window** until it goes away.
+
+***
+
 ## F# Library (bowling score)
 
 * Create new folder for your code and inside create new, **blank** solution called `Bowling`
@@ -324,7 +339,15 @@ Hint: Use `Array.iter` function to perform an action for each element from an ar
     > .paket\paket.exe add Unquote --project Bowling.Tests --group Tests
 
 
-* Look inside global paket.dependencies file and project's local paket.references file
+* Look inside global `paket.dependencies` file and project's local `paket.references` file
+
+
+#### Alternative
+Edit `paket.dependencies` and `paket.references` manually and run:
+
+
+    [lang=paket]
+    .paket/paket.exe install
 
 ---
 

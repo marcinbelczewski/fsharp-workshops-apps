@@ -165,7 +165,7 @@ $RECYCLE.BIN/
 packages/
 
 # Generated documentation folder
-docs/output/
+#docs/output/
 
 # Temp folder used for publishing docs
 temp/
@@ -181,7 +181,7 @@ paket-files
 release.cmd
 *.bak
 *.orig
-docs
+#docs
 .fake/
 FSharp.Formatting.svclog
 _NCrunch*
